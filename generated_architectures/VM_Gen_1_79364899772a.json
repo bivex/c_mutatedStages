@@ -1,0 +1,83 @@
+{
+  "arch_id": "VM_Gen_1_79364899772a",
+  "paradigm": {
+    "id": "HYBRID_STACK_REG",
+    "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+    "state_components": [
+      "stack",
+      "scratch_regs",
+      "sp"
+    ],
+    "operand_sources": [
+      "scratch_regs",
+      "stack_top"
+    ],
+    "result_destination": "scratch_regs_or_stack"
+  },
+  "dispatch": {
+    "id": "DISPATCH_CALL_THREADED",
+    "type": "Array of function pointers called per instruction step",
+    "overhead": "Low-to-Medium (call/ret stack overhead)",
+    "mutation_compatibility": [
+      "runtime_hook_injection",
+      "stage_interposition"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_FIXED_32",
+    "byte_size": 4,
+    "layout": {
+      "opcode_bits": 8,
+      "flags_bits": 4,
+      "src1_bits": 6,
+      "src2_bits": 6,
+      "dst_bits": 8
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "INT_MULT": 0,
+    "INT_DIV": 1,
+    "INT_LESS": 2,
+    "CALL": 3,
+    "HALT": 4,
+    "STORE": 5,
+    "INT_LESSEQUAL": 6,
+    "SUBPIECE": 7,
+    "INT_SCARRY": 8,
+    "INT_ADD": 9,
+    "INT_LEFT": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_MemoryStore",
+      "type": "STORE_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    },
+    {
+      "name": "Unit_IntComplex",
+      "type": "ALU_COMPLEX",
+      "throughput": 2,
+      "latency": 3
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

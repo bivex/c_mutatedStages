@@ -7,29 +7,54 @@
     "stack_based": {
       "id": "STACK",
       "description": "Pure stack machine (Forth / JVM / WASM style). Zero-address instructions.",
-      "state_components": ["stack", "sp"],
-      "operand_sources": ["stack_top", "stack_subtop"],
+      "state_components": [
+        "stack",
+        "sp"
+      ],
+      "operand_sources": [
+        "stack_top",
+        "stack_subtop"
+      ],
       "result_destination": "stack_top"
     },
     "register_based": {
       "id": "REGISTER",
       "description": "Register file machine (Lua 5 / Dalvik / RISC-V style). 2 or 3-address instructions.",
-      "state_components": ["registers"],
-      "operand_sources": ["reg_source1", "reg_source2", "immediate"],
+      "state_components": [
+        "registers"
+      ],
+      "operand_sources": [
+        "reg_source1",
+        "reg_source2",
+        "immediate"
+      ],
       "result_destination": "reg_dest"
     },
     "accumulator_based": {
       "id": "ACCUMULATOR",
       "description": "Single primary accumulator register (e.g., 6502 / PDP-8). 1-address instructions.",
-      "state_components": ["acc", "registers"],
-      "operand_sources": ["acc", "memory_or_immediate"],
+      "state_components": [
+        "acc",
+        "registers"
+      ],
+      "operand_sources": [
+        "acc",
+        "memory_or_immediate"
+      ],
       "result_destination": "acc"
     },
     "hybrid_stack_register": {
       "id": "HYBRID_STACK_REG",
       "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
-      "state_components": ["stack", "scratch_regs", "sp"],
-      "operand_sources": ["scratch_regs", "stack_top"],
+      "state_components": [
+        "stack",
+        "scratch_regs",
+        "sp"
+      ],
+      "operand_sources": [
+        "scratch_regs",
+        "stack_top"
+      ],
       "result_destination": "scratch_regs_or_stack"
     }
   },
@@ -38,25 +63,38 @@
       "id": "DISPATCH_SWITCH",
       "type": "Standard iterative switch-case loop",
       "overhead": "Medium (branch mispredictions in simple loops)",
-      "mutation_compatibility": ["opcode_shuffling", "handler_splitting"]
+      "mutation_compatibility": [
+        "opcode_shuffling",
+        "handler_splitting"
+      ]
     },
     "direct_threaded": {
       "id": "DISPATCH_DIRECT_THREADED",
       "type": "Computed goto via label address array (GCC/Clang &&label syntax)",
       "overhead": "Lowest (hardware branch target buffer friendly)",
-      "mutation_compatibility": ["table_permutation", "dynamic_code_patching"]
+      "mutation_compatibility": [
+        "table_permutation",
+        "dynamic_code_patching"
+      ]
     },
     "call_threaded": {
       "id": "DISPATCH_CALL_THREADED",
       "type": "Array of function pointers called per instruction step",
       "overhead": "Low-to-Medium (call/ret stack overhead)",
-      "mutation_compatibility": ["runtime_hook_injection", "stage_interposition"]
+      "mutation_compatibility": [
+        "runtime_hook_injection",
+        "stage_interposition"
+      ]
     },
     "state_machine_pipeline": {
       "id": "DISPATCH_STAGED_COROUTINE",
       "type": "Discrete micro-tick state machine with explicitly yielded stages",
       "overhead": "Higher (optimal for asynchronous, polyhedral, and formal modeling)",
-      "mutation_compatibility": ["dynamic_stage_reordering", "junk_stage_injection", "split_execution"]
+      "mutation_compatibility": [
+        "dynamic_stage_reordering",
+        "junk_stage_injection",
+        "split_execution"
+      ]
     }
   },
   "instruction_formats": {
@@ -104,8 +142,14 @@
       "stage_id": "STAGE_FETCH",
       "category": "FRONTEND",
       "name": "Instruction Fetch",
-      "inputs": ["pc", "code_memory"],
-      "outputs": ["raw_instruction_bytes", "next_pc"],
+      "inputs": [
+        "pc",
+        "code_memory"
+      ],
+      "outputs": [
+        "raw_instruction_bytes",
+        "next_pc"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "DIRECT_FETCH",
@@ -119,36 +163,57 @@
       "stage_id": "STAGE_DYNAMIC_DECRYPT",
       "category": "SECURITY_OBFUSCATION",
       "name": "Dynamic Opcode Decryption / Transform",
-      "inputs": ["raw_instruction_bytes", "vm_epoch_key"],
-      "outputs": ["decrypted_instruction_bytes"],
+      "inputs": [
+        "raw_instruction_bytes",
+        "vm_epoch_key"
+      ],
+      "outputs": [
+        "decrypted_instruction_bytes"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "AFFINE_CIPHER",
         "LOOKUP_TABLE_PERMUTE",
         "STATE_DEPENDENT_XOR"
       ],
-      "causality_dependencies": ["STAGE_FETCH"]
+      "causality_dependencies": [
+        "STAGE_FETCH"
+      ]
     },
     {
       "stage_id": "STAGE_DECODE",
       "category": "FRONTEND",
       "name": "Instruction Decode & Field Splitting",
-      "inputs": ["decrypted_instruction_bytes"],
-      "outputs": ["decoded_opcode", "operand_specs", "instruction_flags"],
+      "inputs": [
+        "decrypted_instruction_bytes"
+      ],
+      "outputs": [
+        "decoded_opcode",
+        "operand_specs",
+        "instruction_flags"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "DIRECT_BITFIELD_DECODE",
         "HUFFMAN_TREE_DECODE",
         "POLYMORPHIC_LUT_DECODE"
       ],
-      "causality_dependencies": ["STAGE_DYNAMIC_DECRYPT"]
+      "causality_dependencies": [
+        "STAGE_DYNAMIC_DECRYPT"
+      ]
     },
     {
       "stage_id": "STAGE_STAGE_MUTATOR",
       "category": "METAMORPHIC_ENGINE",
       "name": "Pipeline Stage Reordering & Morphing Engine",
-      "inputs": ["current_pipeline_descriptor", "entropy_state"],
-      "outputs": ["new_pipeline_descriptor", "updated_entropy"],
+      "inputs": [
+        "current_pipeline_descriptor",
+        "entropy_state"
+      ],
+      "outputs": [
+        "new_pipeline_descriptor",
+        "updated_entropy"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "PIPELINE_PERMUTE",
@@ -156,14 +221,25 @@
         "STAGE_FUSION",
         "STAGE_FISSION"
       ],
-      "causality_dependencies": ["STAGE_DECODE"]
+      "causality_dependencies": [
+        "STAGE_DECODE"
+      ]
     },
     {
       "stage_id": "STAGE_OPERAND_FETCH",
       "category": "OPERAND_MANAGEMENT",
       "name": "Operand Resolution & Dereference",
-      "inputs": ["operand_specs", "registers", "stack", "data_memory"],
-      "outputs": ["operand_a_val", "operand_b_val", "dest_ref"],
+      "inputs": [
+        "operand_specs",
+        "registers",
+        "stack",
+        "data_memory"
+      ],
+      "outputs": [
+        "operand_a_val",
+        "operand_b_val",
+        "dest_ref"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "STACK_TOP_POP",
@@ -171,14 +247,20 @@
         "INDIRECT_MEMORY_READ",
         "SHADOW_REGISTER_MIRROR"
       ],
-      "causality_dependencies": ["STAGE_DECODE"]
+      "causality_dependencies": [
+        "STAGE_DECODE"
+      ]
     },
     {
       "stage_id": "STAGE_JUNK_NOOP",
       "category": "OBFUSCATION_DECOY",
       "name": "Decoy / Polymorphic Junk Execution",
-      "inputs": ["entropy_register"],
-      "outputs": ["entropy_register_updated"],
+      "inputs": [
+        "entropy_register"
+      ],
+      "outputs": [
+        "entropy_register_updated"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "DEAD_ALU_OPERATION",
@@ -191,8 +273,17 @@
       "stage_id": "STAGE_EXECUTE",
       "category": "ALU_CORE",
       "name": "Core ALU & Branch Execution",
-      "inputs": ["decoded_opcode", "operand_a_val", "operand_b_val"],
-      "outputs": ["computation_result", "branch_taken", "target_pc", "flag_updates"],
+      "inputs": [
+        "decoded_opcode",
+        "operand_a_val",
+        "operand_b_val"
+      ],
+      "outputs": [
+        "computation_result",
+        "branch_taken",
+        "target_pc",
+        "flag_updates"
+      ],
       "can_be_mutated": true,
       "mutation_variants": [
         "STANDARD_ALU",
@@ -200,21 +291,35 @@
         "RESIDUE_NUMBER_ALU",
         "MBA_EXPRESSION_EVALUATOR"
       ],
-      "causality_dependencies": ["STAGE_OPERAND_FETCH"]
+      "causality_dependencies": [
+        "STAGE_OPERAND_FETCH"
+      ]
     },
     {
       "stage_id": "STAGE_COMMIT_WRITEBACK",
       "category": "BACKEND",
       "name": "State Commit & Architectural Writeback",
-      "inputs": ["dest_ref", "computation_result", "branch_taken", "target_pc"],
-      "outputs": ["registers_updated", "stack_updated", "pc_updated", "memory_updated"],
+      "inputs": [
+        "dest_ref",
+        "computation_result",
+        "branch_taken",
+        "target_pc"
+      ],
+      "outputs": [
+        "registers_updated",
+        "stack_updated",
+        "pc_updated",
+        "memory_updated"
+      ],
       "can_be_mutated": false,
       "mutation_variants": [
         "DIRECT_REG_WRITEBACK",
         "STACK_PUSH_COMMIT",
         "TRANSACTIONAL_SHADOW_COMMIT"
       ],
-      "causality_dependencies": ["STAGE_EXECUTE"]
+      "causality_dependencies": [
+        "STAGE_EXECUTE"
+      ]
     }
   ],
   "mutation_algebra": {
@@ -246,6 +351,654 @@
       {
         "name": "DecryptionBeforeDecode",
         "rule": "STAGE_DYNAMIC_DECRYPT must immediately precede STAGE_DECODE unless ciphertext format is disabled."
+      }
+    ]
+  },
+  "dataset_metadata": {
+    "source": "Aggregated NSA Ghidra, W3C WASM, Linux eBPF, RISC-V Foundation, and LLVM TableGen",
+    "total_primitives": 150,
+    "is_formal_verified": true
+  },
+  "ghidra_pcode": {
+    "description": "Ghidra Universal Micro-Operations (P-Code) representing atomic ISA-independent stages",
+    "micro_ops": [
+      {
+        "op": "COPY",
+        "type": "DATA_TRANSFER",
+        "inputs": [
+          "src"
+        ],
+        "outputs": [
+          "dst"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "LOAD",
+        "type": "MEMORY_READ",
+        "inputs": [
+          "space",
+          "addr_offset"
+        ],
+        "outputs": [
+          "val"
+        ],
+        "cycles": 2
+      },
+      {
+        "op": "STORE",
+        "type": "MEMORY_WRITE",
+        "inputs": [
+          "space",
+          "addr_offset",
+          "val"
+        ],
+        "outputs": [],
+        "cycles": 2
+      },
+      {
+        "op": "BRANCH",
+        "type": "CONTROL_FLOW",
+        "inputs": [
+          "target_addr"
+        ],
+        "outputs": [
+          "pc"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "CBRANCH",
+        "type": "CONTROL_FLOW_COND",
+        "inputs": [
+          "target_addr",
+          "cond_bool"
+        ],
+        "outputs": [
+          "pc"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "BRANCHIND",
+        "type": "CONTROL_FLOW_INDIRECT",
+        "inputs": [
+          "dyn_target"
+        ],
+        "outputs": [
+          "pc"
+        ],
+        "cycles": 2
+      },
+      {
+        "op": "CALL",
+        "type": "SUBROUTINE",
+        "inputs": [
+          "target_addr"
+        ],
+        "outputs": [
+          "call_stack",
+          "pc"
+        ],
+        "cycles": 2
+      },
+      {
+        "op": "RETURN",
+        "type": "SUBROUTINE",
+        "inputs": [
+          "call_stack"
+        ],
+        "outputs": [
+          "pc"
+        ],
+        "cycles": 2
+      },
+      {
+        "op": "INT_ADD",
+        "type": "ALU_INT",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SUB",
+        "type": "ALU_INT",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_CARRY",
+        "type": "ALU_FLAG",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "carry_bit"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SCARRY",
+        "type": "ALU_FLAG",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "signed_carry_bit"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SBORROW",
+        "type": "ALU_FLAG",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "borrow_bit"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_2COMP",
+        "type": "ALU_INT",
+        "inputs": [
+          "a"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_NEGATE",
+        "type": "ALU_BITWISE",
+        "inputs": [
+          "a"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_XOR",
+        "type": "ALU_BITWISE",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_AND",
+        "type": "ALU_BITWISE",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_OR",
+        "type": "ALU_BITWISE",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_LEFT",
+        "type": "ALU_SHIFT",
+        "inputs": [
+          "a",
+          "shift_amount"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_RIGHT",
+        "type": "ALU_SHIFT",
+        "inputs": [
+          "a",
+          "shift_amount"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SRIGHT",
+        "type": "ALU_SHIFT",
+        "inputs": [
+          "a",
+          "shift_amount"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_MULT",
+        "type": "ALU_COMPLEX",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 3
+      },
+      {
+        "op": "INT_DIV",
+        "type": "ALU_COMPLEX",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 8
+      },
+      {
+        "op": "INT_REM",
+        "type": "ALU_COMPLEX",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "res"
+        ],
+        "cycles": 8
+      },
+      {
+        "op": "INT_EQUAL",
+        "type": "COMPARISON",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "cond_bool"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_NOTEQUAL",
+        "type": "COMPARISON",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "cond_bool"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_LESS",
+        "type": "COMPARISON",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "cond_bool"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SLESS",
+        "type": "COMPARISON",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "cond_bool"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_LESSEQUAL",
+        "type": "COMPARISON",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "cond_bool"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SLESSEQUAL",
+        "type": "COMPARISON",
+        "inputs": [
+          "a",
+          "b"
+        ],
+        "outputs": [
+          "cond_bool"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_ZEXT",
+        "type": "CONVERSION",
+        "inputs": [
+          "a"
+        ],
+        "outputs": [
+          "extended_val"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "INT_SEXT",
+        "type": "CONVERSION",
+        "inputs": [
+          "a"
+        ],
+        "outputs": [
+          "extended_val"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "PIECE",
+        "type": "BIT_CONCAT",
+        "inputs": [
+          "high",
+          "low"
+        ],
+        "outputs": [
+          "combined"
+        ],
+        "cycles": 1
+      },
+      {
+        "op": "SUBPIECE",
+        "type": "BIT_EXTRACT",
+        "inputs": [
+          "val",
+          "byte_offset"
+        ],
+        "outputs": [
+          "sliced"
+        ],
+        "cycles": 1
+      }
+    ]
+  },
+  "wasm_core": {
+    "description": "WebAssembly (W3C WASM) Staged Bytecode & Validation Taxonomy",
+    "paradigm": "STACK",
+    "categories": {
+      "control": [
+        "unreachable",
+        "nop",
+        "block",
+        "loop",
+        "if",
+        "else",
+        "end",
+        "br",
+        "br_if",
+        "br_table",
+        "return",
+        "call",
+        "call_indirect"
+      ],
+      "parametric": [
+        "drop",
+        "select"
+      ],
+      "variable": [
+        "local.get",
+        "local.set",
+        "local.tee",
+        "global.get",
+        "global.set"
+      ],
+      "memory": [
+        "i32.load",
+        "i64.load",
+        "f32.load",
+        "f64.load",
+        "i32.store",
+        "i64.store",
+        "memory.size",
+        "memory.grow"
+      ],
+      "numeric_i32": [
+        "i32.const",
+        "i32.eqz",
+        "i32.eq",
+        "i32.ne",
+        "i32.lt_s",
+        "i32.lt_u",
+        "i32.add",
+        "i32.sub",
+        "i32.mul",
+        "i32.div_s",
+        "i32.div_u",
+        "i32.and",
+        "i32.or",
+        "i32.xor",
+        "i32.shl",
+        "i32.shr_s",
+        "i32.shr_u",
+        "i32.rotl",
+        "i32.rotr"
+      ],
+      "numeric_i64": [
+        "i64.const",
+        "i64.eqz",
+        "i64.add",
+        "i64.sub",
+        "i64.mul",
+        "i64.and",
+        "i64.or",
+        "i64.xor"
+      ]
+    }
+  },
+  "ebpf_arch": {
+    "description": "Linux Kernel eBPF 64-bit Register Virtual Machine Specification",
+    "paradigm": "REGISTER",
+    "register_count": 11,
+    "registers": {
+      "r0": "Return value / syscall result",
+      "r1_r5": "Function arguments (caller saved)",
+      "r6_r9": "Callee saved registers",
+      "r10": "Read-only frame pointer"
+    },
+    "instruction_classes": {
+      "BPF_LD": "0x00 - Non-standard load operations",
+      "BPF_LDX": "0x01 - Load into register from memory",
+      "BPF_ST": "0x02 - Store immediate into memory",
+      "BPF_STX": "0x03 - Store register value into memory",
+      "BPF_ALU": "0x04 - 32-bit Arithmetic/Logic Unit",
+      "BPF_JMP": "0x05 - 64-bit Jump & Branching",
+      "BPF_JMP32": "0x06 - 32-bit Jump & Branching",
+      "BPF_ALU64": "0x07 - 64-bit Arithmetic/Logic Unit"
+    },
+    "alu_operations": [
+      "ADD",
+      "SUB",
+      "MUL",
+      "DIV",
+      "OR",
+      "AND",
+      "LSH",
+      "RSH",
+      "NEG",
+      "MOD",
+      "XOR",
+      "MOV",
+      "ARSH",
+      "END"
+    ]
+  },
+  "riscv_isa": {
+    "description": "RISC-V Formal Encoding Formats (RV32I / RV64I / Compressed RVC)",
+    "formats": {
+      "R_TYPE": {
+        "description": "Register-Register operations (ADD, SUB, SLL, SLT, XOR, SRL, OR, AND)",
+        "fields": [
+          "opcode:7",
+          "rd:5",
+          "funct3:3",
+          "rs1:5",
+          "rs2:5",
+          "funct7:7"
+        ]
+      },
+      "I_TYPE": {
+        "description": "Register-Immediate & Load operations (ADDI, ANDI, ORI, XORI, LW, LH, LB, JALR)",
+        "fields": [
+          "opcode:7",
+          "rd:5",
+          "funct3:3",
+          "rs1:5",
+          "imm[11:0]:12"
+        ]
+      },
+      "S_TYPE": {
+        "description": "Store operations (SW, SH, SB)",
+        "fields": [
+          "opcode:7",
+          "imm[4:0]:5",
+          "funct3:3",
+          "rs1:5",
+          "rs2:5",
+          "imm[11:5]:7"
+        ]
+      },
+      "B_TYPE": {
+        "description": "Conditional Branch operations (BEQ, BNE, BLT, BGE, BLTU, BGEU)",
+        "fields": [
+          "opcode:7",
+          "imm[11|4:1]:5",
+          "funct3:3",
+          "rs1:5",
+          "rs2:5",
+          "imm[12|10:5]:7"
+        ]
+      },
+      "U_TYPE": {
+        "description": "Upper Immediate operations (LUI, AUIPC)",
+        "fields": [
+          "opcode:7",
+          "rd:5",
+          "imm[31:12]:20"
+        ]
+      },
+      "J_TYPE": {
+        "description": "Unconditional Jump operations (JAL)",
+        "fields": [
+          "opcode:7",
+          "rd:5",
+          "imm[20|10:1|11|19:12]:20"
+        ]
+      },
+      "CR_TYPE": {
+        "description": "Compressed 16-bit Register format (C.MV, C.ADD, C.JR, C.JALR)",
+        "fields": [
+          "op:2",
+          "rs2:5",
+          "rd_rs1:5",
+          "funct4:4"
+        ]
+      },
+      "CI_TYPE": {
+        "description": "Compressed 16-bit Immediate format (C.NOP, C.ADDI, C.LI, C.LUI)",
+        "fields": [
+          "op:2",
+          "imm:6",
+          "rd_rs1:5",
+          "funct3:3"
+        ]
+      }
+    }
+  },
+  "llvm_pipeline_units": {
+    "description": "LLVM SchedMachineModel Micro-Architectural Execution Units",
+    "units": [
+      {
+        "name": "Unit_IntSimple",
+        "type": "ALU_SIMPLE",
+        "throughput": 1,
+        "latency": 1
+      },
+      {
+        "name": "Unit_IntComplex",
+        "type": "ALU_COMPLEX",
+        "throughput": 2,
+        "latency": 3
+      },
+      {
+        "name": "Unit_Branch",
+        "type": "BRANCH_UNIT",
+        "throughput": 1,
+        "latency": 1
+      },
+      {
+        "name": "Unit_MemoryLoad",
+        "type": "LOAD_PORT",
+        "throughput": 1,
+        "latency": 2
+      },
+      {
+        "name": "Unit_MemoryStore",
+        "type": "STORE_PORT",
+        "throughput": 1,
+        "latency": 2
+      },
+      {
+        "name": "Unit_CryptoAesSha",
+        "type": "CRYPTO_ACCEL",
+        "throughput": 4,
+        "latency": 4
+      },
+      {
+        "name": "Unit_PolymorphicDecoy",
+        "type": "DECOY_JUNK_UNIT",
+        "throughput": 1,
+        "latency": 1
       }
     ]
   }

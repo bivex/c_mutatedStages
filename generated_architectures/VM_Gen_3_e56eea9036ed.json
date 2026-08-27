@@ -1,0 +1,81 @@
+{
+  "arch_id": "VM_Gen_3_e56eea9036ed",
+  "paradigm": {
+    "id": "REGISTER",
+    "description": "Register file machine (Lua 5 / Dalvik / RISC-V style). 2 or 3-address instructions.",
+    "state_components": [
+      "registers"
+    ],
+    "operand_sources": [
+      "reg_source1",
+      "reg_source2",
+      "immediate"
+    ],
+    "result_destination": "reg_dest"
+  },
+  "dispatch": {
+    "id": "DISPATCH_CALL_THREADED",
+    "type": "Array of function pointers called per instruction step",
+    "overhead": "Low-to-Medium (call/ret stack overhead)",
+    "mutation_compatibility": [
+      "runtime_hook_injection",
+      "stage_interposition"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_NIBBLE_AFFINE",
+    "byte_size": 2,
+    "layout": {
+      "high_nibble": "obfuscated_opcode = (real_op * A + B) % 16",
+      "low_nibble": "packed_register_indices"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_JUNK_NOOP",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_JUNK_NOOP",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "BPF_MUL": 0,
+    "BPF_MOV": 1,
+    "BPF_OR": 2,
+    "BPF_MOD": 3,
+    "BPF_ADD": 4,
+    "BPF_AND": 5,
+    "BPF_LSH": 6,
+    "HALT": 7,
+    "BPF_SUB": 8,
+    "BPF_NEG": 9,
+    "BPF_XOR": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_Branch",
+      "type": "BRANCH_UNIT",
+      "throughput": 1,
+      "latency": 1
+    },
+    {
+      "name": "Unit_MemoryStore",
+      "type": "STORE_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

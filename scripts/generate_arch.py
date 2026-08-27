@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
 Architecture Generator for Unique Multi-Stage Mutated Virtual Machines.
-Reads 'spec/stages_db.json', synthesizes combinatorially unique VM architectures,
-formally verifies causality invariants, and exports specifications.
+Reads the comprehensive database in 'spec/stages_db.json' (Ghidra, WASM, eBPF, RISC-V, LLVM),
+synthesizes unique VM configurations, formally verifies causality invariants, and exports
+both JSON metadata and generated C headers for instant compilation.
 """
 
 import json
 import random
 import hashlib
-import os
 import sys
 from pathlib import Path
 
@@ -31,9 +31,6 @@ class ArchitectureSynthesizer:
         """
         Synthesizes a valid multi-stage pipeline complying with causality invariants.
         """
-        causality = self.db["mutation_algebra"]["causality_matrix"]
-        
-        # Mandatory core stages in topological order
         core_stages = [
             "STAGE_FETCH",
             "STAGE_DYNAMIC_DECRYPT",
@@ -42,19 +39,15 @@ class ArchitectureSynthesizer:
             "STAGE_EXECUTE",
             "STAGE_COMMIT_WRITEBACK"
         ]
-        
-        # Optional / Floating stages
         pipeline = list(core_stages)
         
-        # 1. Optionally insert junk stages at safe slots
+        # 1. Optionally insert junk/decoy stages at safe points
         for _ in range(random.randint(0, max_junk_stages)):
-            # Safe slots: between fetch and commit (excluding after commit)
             insert_pos = random.randint(1, len(pipeline) - 1)
             pipeline.insert(insert_pos, "STAGE_JUNK_NOOP")
             
         # 2. Optionally insert metamorphic engine
         if enable_mutator and random.choice([True, False]):
-            # Place stage mutator either after decode or before commit
             insert_pos = random.randint(2, len(pipeline) - 1)
             pipeline.insert(insert_pos, "STAGE_STAGE_MUTATOR")
             
@@ -62,9 +55,9 @@ class ArchitectureSynthesizer:
 
     def verify_causality_invariants(self, pipeline):
         """
-        Formal invariant check (mirroring TLA+ specification):
+        Formal invariant verification:
         1. Causal order: Fetch < Decrypt < Decode < OperandFetch < Execute < Commit
-        2. Commit must be the terminal architectural effect.
+        2. Commit must be the terminal architectural writeback effect.
         """
         causality = self.db["mutation_algebra"]["causality_matrix"]
         seen_ranks = []
@@ -78,17 +71,42 @@ class ArchitectureSynthesizer:
                 
         if "STAGE_COMMIT_WRITEBACK" in pipeline:
             commit_idx = pipeline.index("STAGE_COMMIT_WRITEBACK")
-            # Commit should be at or near the end (only non-destructive stages allowed after)
             for subsequent in pipeline[commit_idx + 1:]:
                 if subsequent not in ["STAGE_STAGE_MUTATOR", "STAGE_JUNK_NOOP"]:
                     return False, f"Illegal stage {subsequent} placed after state commit."
                     
         return True, "All Formal Invariants Verified OK"
 
+    def select_instruction_set(self, paradigm_id):
+        """
+        Selects and binds real instruction primitives from Ghidra, WASM, or eBPF.
+        """
+        if paradigm_id == "STACK":
+            # WASM numeric + control subset
+            pool = list(self.db.get("wasm_core", {}).get("categories", {}).get("numeric_i32", []))
+            if not pool:
+                pool = ["i32.add", "i32.sub", "i32.xor", "i32.and", "i32.const", "drop"]
+            random.shuffle(pool)
+            selected = pool[:10]
+        elif paradigm_id == "REGISTER":
+            # eBPF / RISC-V register ALU ops
+            pool = list(self.db.get("ebpf_arch", {}).get("alu_operations", []))
+            if not pool:
+                pool = ["ADD", "SUB", "XOR", "AND", "OR", "LSH", "RSH", "MOV"]
+            random.shuffle(pool)
+            selected = [f"BPF_{op}" for op in pool[:10]]
+        else:
+            # Ghidra universal P-Code micro-ops
+            pcode_ops = [x["op"] for x in self.db.get("ghidra_pcode", {}).get("micro_ops", [])]
+            random.shuffle(pcode_ops)
+            selected = pcode_ops[:10]
+            
+        selected.append("HALT")
+        # Build shuffled polymorphic opcodes
+        random.shuffle(selected)
+        return {op: idx for idx, op in enumerate(selected)}
+
     def synthesize_unique_architecture(self, name_prefix="ArchVM"):
-        """
-        Synthesizes a complete unique VM profile.
-        """
         paradigm_key = random.choice(list(self.db["execution_paradigms"].keys()))
         paradigm = self.db["execution_paradigms"][paradigm_key]
         
@@ -100,18 +118,19 @@ class ArchitectureSynthesizer:
         
         pipeline = self.generate_pipeline()
         is_valid, msg = self.verify_causality_invariants(pipeline)
-        
         if not is_valid:
             raise ValueError(f"Synthesis failed invariant check: {msg}")
             
-        # Generate polymorphic key table
-        opcodes = ["ADD", "SUB", "XOR", "AND", "SHL", "SHR", "LOAD", "STORE", "JMP", "JZ", "HALT"]
-        shuffled_opcodes = list(opcodes)
-        random.shuffle(shuffled_opcodes)
-        opcode_map = {op: idx for idx, op in enumerate(shuffled_opcodes)}
+        opcodes = self.select_instruction_set(paradigm["id"])
+        
+        # Micro-architectural units from LLVM
+        sched_units = random.sample(
+            self.db.get("llvm_pipeline_units", {}).get("units", [{"name": "DefaultAlu"}]),
+            k=min(3, len(self.db.get("llvm_pipeline_units", {}).get("units", [])))
+        )
         
         # Compute deterministic fingerprint
-        spec_blob = f"{paradigm_key}:{dispatch_key}:{fmt_key}:{pipeline}:{shuffled_opcodes}"
+        spec_blob = f"{paradigm_key}:{dispatch_key}:{fmt_key}:{pipeline}:{sorted(opcodes.items())}"
         arch_hash = hashlib.sha256(spec_blob.encode()).hexdigest()[:12]
         arch_id = f"{name_prefix}_{arch_hash}"
         
@@ -121,7 +140,8 @@ class ArchitectureSynthesizer:
             "dispatch": dispatch,
             "instruction_format": fmt,
             "pipeline_stages": pipeline,
-            "opcode_mapping": opcode_map,
+            "opcode_mapping": opcodes,
+            "micro_sched_units": sched_units,
             "formal_verification_status": {
                 "invariants_passed": is_valid,
                 "verification_message": msg,
@@ -130,26 +150,80 @@ class ArchitectureSynthesizer:
         }
         return architecture
 
+    def emit_c_header(self, arch):
+        """
+        Emits an auto-generated C header describing this synthesized VM architecture.
+        """
+        guard = f"VM_{arch['arch_id'].upper()}_H"
+        stages_enum = ",\n    ".join([f"STAGE_{idx}_{s}" for idx, s in enumerate(arch["pipeline_stages"])])
+        opcodes_enum = ",\n    ".join([f"OP_{op.replace('.', '_').upper()} = {val}" for op, val in arch["opcode_mapping"].items()])
+        
+        c_code = f"""/* Auto-generated by c_mutatedStages Architecture Synthesizer */
+/* Unique Architecture ID: {arch['arch_id']} */
+/* Paradigm: {arch['paradigm']['id']} | Dispatch: {arch['dispatch']['id']} */
+
+#ifndef {guard}
+#define {guard}
+
+#include <stdint.h>
+#include <stdbool.h>
+
+#define ARCH_ID "{arch['arch_id']}"
+#define PIPELINE_STAGE_COUNT {len(arch['pipeline_stages'])}
+
+/* Opcodes for this polymorphic instance */
+typedef enum {{
+    {opcodes_enum}
+}} {arch['arch_id']}_opcode_t;
+
+/* Formal pipeline stage sequence */
+typedef enum {{
+    {stages_enum}
+}} {arch['arch_id']}_stage_t;
+
+/* Latches / Inter-stage register state */
+typedef struct {{
+    uint32_t pc;
+    uint64_t registers[16];
+    uint64_t stack[64];
+    uint32_t sp;
+    uint32_t current_stage_idx;
+    uint32_t entropy_key;
+    bool halted;
+}} {arch['arch_id']}_context_t;
+
+#endif /* {guard} */
+"""
+        return c_code
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     db = load_stages_db()
     synthesizer = ArchitectureSynthesizer(db)
     
     count = int(sys.argv[1]) if len(sys.argv) > 1 else 3
-    print(f"[*] Generating {count} unique verified VM architectures from stages database...")
+    print(f"[*] Generating {count} unique verified VM architectures from comprehensive DB...")
     
     for i in range(count):
         arch = synthesizer.synthesize_unique_architecture(name_prefix=f"VM_Gen_{i+1}")
-        out_file = OUT_DIR / f"{arch['arch_id']}.json"
-        with open(out_file, "w", encoding="utf-8") as f:
+        
+        # 1. Save JSON profile
+        json_file = OUT_DIR / f"{arch['arch_id']}.json"
+        with open(json_file, "w", encoding="utf-8") as f:
             json.dump(arch, f, indent=2)
+            
+        # 2. Save C Header
+        c_file = OUT_DIR / f"{arch['arch_id']}.h"
+        with open(c_file, "w", encoding="utf-8") as f:
+            f.write(synthesizer.emit_c_header(arch))
             
         print(f"  [+] Created: {arch['arch_id']}")
         print(f"      - Paradigm : {arch['paradigm']['id']}")
         print(f"      - Dispatch : {arch['dispatch']['id']}")
         print(f"      - Pipeline : {' -> '.join(arch['pipeline_stages'])}")
-        print(f"      - Verified : {arch['formal_verification_status']['verification_message']}")
-        print(f"      - Saved to : {out_file.relative_to(BASE_DIR)}\n")
+        print(f"      - Opcodes  : {len(arch['opcode_mapping'])} ops bound")
+        print(f"      - JSON     : {json_file.relative_to(BASE_DIR)}")
+        print(f"      - C Header : {c_file.relative_to(BASE_DIR)}\n")
 
 if __name__ == "__main__":
     main()

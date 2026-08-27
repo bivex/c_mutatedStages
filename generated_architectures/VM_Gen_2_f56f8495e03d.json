@@ -1,0 +1,83 @@
+{
+  "arch_id": "VM_Gen_2_f56f8495e03d",
+  "paradigm": {
+    "id": "HYBRID_STACK_REG",
+    "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+    "state_components": [
+      "stack",
+      "scratch_regs",
+      "sp"
+    ],
+    "operand_sources": [
+      "scratch_regs",
+      "stack_top"
+    ],
+    "result_destination": "scratch_regs_or_stack"
+  },
+  "dispatch": {
+    "id": "DISPATCH_DIRECT_THREADED",
+    "type": "Computed goto via label address array (GCC/Clang &&label syntax)",
+    "overhead": "Lowest (hardware branch target buffer friendly)",
+    "mutation_compatibility": [
+      "table_permutation",
+      "dynamic_code_patching"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_VLIW_BUNDLE",
+    "byte_size": 8,
+    "layout": {
+      "stage_mask": "8 bits indicating active micro-stages",
+      "alu_slot": "24 bits",
+      "memory_slot": "24 bits",
+      "mutation_slot": "8 bits"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "CALL": 0,
+    "INT_REM": 1,
+    "HALT": 2,
+    "INT_SCARRY": 3,
+    "INT_CARRY": 4,
+    "INT_XOR": 5,
+    "INT_LEFT": 6,
+    "INT_DIV": 7,
+    "INT_RIGHT": 8,
+    "INT_ADD": 9,
+    "SUBPIECE": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    },
+    {
+      "name": "Unit_MemoryLoad",
+      "type": "LOAD_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_Branch",
+      "type": "BRANCH_UNIT",
+      "throughput": 1,
+      "latency": 1
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}
