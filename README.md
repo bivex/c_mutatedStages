@@ -1,36 +1,37 @@
 # c_mutatedStages
 
-> 🧪 Formal TLA+ specification, stage catalog, and Apple MLX AI Transformer for synthesizing unique 100+ multi-stage Virtual Machines.
+> 🧪 Rigorous TLA+ formal specification, stage catalog, and Sail ISA synthesizer for deeply staged (100+ micro-stages) virtual machines.
 
 ## ⚡ Quickstart
 
-### 1. Generate 100+ Stage VM with Apple MLX AI Model
-Train/run the MLX Causal Transformer on Apple Silicon GPU to synthesize and compile a 100+ stage VM:
+### 1. Verify Deep Staged Model in TLA+
+Formally prove bit-sliced ALU mathematical equivalence, MBA polynomial invariance, Feistel deobfuscation, and deadlock-freedom:
 ```bash
-# Generate and run executable 108-stage C VM
-python3 mlx_model/generate_100_stage_vm.py
+java -cp tla/tla2tools.jar tlc2.TLC tla/DeepStagedVM.tla -config tla/DeepStagedVM.cfg
 ```
 
-### 2. Verify Formal Model (TLA+)
-Check formal invariants and deadlock-freedom with TLC:
+### 2. Synthesize 100+ Stage Architecture in Sail Language
+Generate a genuine 112-stage formal architecture specification in Cambridge Sail format (`.sail`):
 ```bash
-java -cp tla/tla2tools.jar tlc2.TLC tla/MutatedStageVM.tla -config tla/MutatedStageVM.cfg
+python3 scripts/generate_100_stage_vm.py
 ```
 
-### 3. Generate & Verify 3 Random Unique Architectures
-Synthesize and verify 3 unique architectures with Clang and TLA+:
-```bash
-python3 scripts/verify_architectures.py
-```
+---
+
+## 🔬 Formal Verification Guarantees (TLA+ / TLC)
+
+The TLA+ specification in **`tla/DeepStagedVM.tla`** mathematically proves:
+1. **`BitSliceCorrectness`**: Induction proof that 64-bit Full-Adder stages across latches compute $(A + B) \pmod{2^N}$ with zero bit corruption.
+2. **`MBAEquivalence`**: Mixed Boolean-Arithmetic polynomial transformations retain exact algebraic equivalence.
+3. **`DataHazardFreedom`**: Operand latches are verified before any execution stage touches state.
+4. **`CommitIntegrity`**: Architectural state (GPRs, PC) is updated strictly at commit.
+5. **`Liveness`**: Full absence of deadlocks across all micro-stages.
 
 ---
 
 ## 📂 Project Structure
 
-- **`mlx_model/`** — Neural network generative engine powered by Apple MLX (`mlx.nn`, `mlx.core`):
-  - `vm_transformer.py` — Causal Transformer architecture with 135+ stage vocabulary.
-  - `train_generator.py` — Training pipeline compiled on Apple Silicon GPU.
-  - `generate_100_stage_vm.py` — Autoregressive generator producing full 100+ stage C engines.
-- **`spec/stages_db.json`** — Comprehensive database (NSA Ghidra P-Code, W3C WASM, Linux eBPF, QEMU, RISC-V).
-- **`tla/MutatedStageVM.tla`** — Formal TLA+ model proving data hazard freedom and deadlock-free execution.
-- **`generated_architectures/`** — Generated JSON profiles and executable C engines.
+- **`tla/DeepStagedVM.tla`** — Formal TLA+ specification for deep micro-staged VMs.
+- **`scripts/generate_100_stage_vm.py`** — Formal synthesizer emitting complete Sail language specifications (`.sail`).
+- **`spec/stages_db.json`** — Upstream formal catalog (Ghidra P-Code, WASM, eBPF, QEMU, RISC-V).
+- **`generated_architectures/`** — Generated `.sail` architecture files and JSON metadata.
