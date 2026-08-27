@@ -1,0 +1,10 @@
+{
+  "arch_id": "Sail_DeepStagedVM_f6f61d640751",
+  "total_micro_stages": 112,
+  "parameters": {
+    "feistel_key_seed": "0xA96AF058",
+    "lfsr_polynomial": "0x800000000000001B",
+    "affine_multiplier": 5,
+    "affine_offset": 19
+  }
+}
