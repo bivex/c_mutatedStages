@@ -1,0 +1,85 @@
+{
+  "arch_id": "VM_Gen_1_e02e36604372",
+  "paradigm": {
+    "id": "HYBRID_STACK_REG",
+    "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+    "state_components": [
+      "stack",
+      "scratch_regs",
+      "sp"
+    ],
+    "operand_sources": [
+      "scratch_regs",
+      "stack_top"
+    ],
+    "result_destination": "scratch_regs_or_stack"
+  },
+  "dispatch": {
+    "id": "DISPATCH_STAGED_COROUTINE",
+    "type": "Discrete micro-tick state machine with explicitly yielded stages",
+    "overhead": "Higher (optimal for asynchronous, polyhedral, and formal modeling)",
+    "mutation_compatibility": [
+      "dynamic_stage_reordering",
+      "junk_stage_injection",
+      "split_execution"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_VAR_BYTE",
+    "byte_size": "1_to_9_bytes",
+    "layout": {
+      "opcode": "1 byte",
+      "modrm_or_tag": "1 byte optional",
+      "immediate": "0-8 bytes LEB128/variable"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_JUNK_NOOP",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_JUNK_NOOP",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "INT_LEFT": 0,
+    "BRANCHIND": 1,
+    "INT_CARRY": 2,
+    "STORE": 3,
+    "HALT": 4,
+    "INT_EQUAL": 5,
+    "INT_SLESS": 6,
+    "INT_SBORROW": 7,
+    "INT_NOTEQUAL": 8,
+    "SUBPIECE": 9,
+    "LOAD": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_IntComplex",
+      "type": "ALU_COMPLEX",
+      "throughput": 2,
+      "latency": 3
+    },
+    {
+      "name": "Unit_CryptoAesSha",
+      "type": "CRYPTO_ACCEL",
+      "throughput": 4,
+      "latency": 4
+    },
+    {
+      "name": "Unit_MemoryStore",
+      "type": "STORE_PORT",
+      "throughput": 1,
+      "latency": 2
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

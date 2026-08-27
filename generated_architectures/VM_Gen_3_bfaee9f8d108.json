@@ -1,0 +1,87 @@
+{
+  "arch_id": "VM_Gen_3_bfaee9f8d108",
+  "paradigm": {
+    "id": "HYBRID_STACK_REG",
+    "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+    "state_components": [
+      "stack",
+      "scratch_regs",
+      "sp"
+    ],
+    "operand_sources": [
+      "scratch_regs",
+      "stack_top"
+    ],
+    "result_destination": "scratch_regs_or_stack"
+  },
+  "dispatch": {
+    "id": "DISPATCH_STAGED_COROUTINE",
+    "type": "Discrete micro-tick state machine with explicitly yielded stages",
+    "overhead": "Higher (optimal for asynchronous, polyhedral, and formal modeling)",
+    "mutation_compatibility": [
+      "dynamic_stage_reordering",
+      "junk_stage_injection",
+      "split_execution"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_FIXED_32",
+    "byte_size": 4,
+    "layout": {
+      "opcode_bits": 8,
+      "flags_bits": 4,
+      "src1_bits": 6,
+      "src2_bits": 6,
+      "dst_bits": 8
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_JUNK_NOOP",
+    "STAGE_DECODE",
+    "STAGE_JUNK_NOOP",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "INT_SLESSEQUAL": 0,
+    "CALL": 1,
+    "INT_RIGHT": 2,
+    "INT_NOTEQUAL": 3,
+    "INT_REM": 4,
+    "SUBPIECE": 5,
+    "INT_DIV": 6,
+    "INT_SLESS": 7,
+    "LOAD": 8,
+    "BRANCH": 9,
+    "HALT": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_IntComplex",
+      "type": "ALU_COMPLEX",
+      "throughput": 2,
+      "latency": 3
+    },
+    {
+      "name": "Unit_MemoryLoad",
+      "type": "LOAD_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

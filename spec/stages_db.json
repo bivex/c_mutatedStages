@@ -1001,5 +1001,5714 @@
         "latency": 1
       }
     ]
+  },
+  "real_world_extracted_specs": {
+    "qemu_riscv_insns": [
+      {
+        "name": "ecall",
+        "bit_pattern": "000000000000     00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "ebreak",
+        "bit_pattern": "000000000001     00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "sctrclr",
+        "bit_pattern": "000100000100     00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "uret",
+        "bit_pattern": "0000000    00010 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "sret",
+        "bit_pattern": "0001000    00010 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "mret",
+        "bit_pattern": "0011000    00010 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "wfi",
+        "bit_pattern": "0001000    00101 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "sfence_vma",
+        "bit_pattern": "0001001    ..... ..... 000 00000 1110011",
+        "format": "@sfence_vma"
+      },
+      {
+        "name": "mnret",
+        "bit_pattern": "0111000    00010 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "lui",
+        "bit_pattern": "....................       ..... 0110111",
+        "format": "@u"
+      },
+      {
+        "name": "lpad",
+        "bit_pattern": "",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "auipc",
+        "bit_pattern": "....................       ..... 0010111",
+        "format": "@u"
+      },
+      {
+        "name": "jal",
+        "bit_pattern": "....................       ..... 1101111",
+        "format": "@j"
+      },
+      {
+        "name": "jalr",
+        "bit_pattern": "............     ..... 000 ..... 1100111",
+        "format": "@i"
+      },
+      {
+        "name": "beq",
+        "bit_pattern": "....... .....    ..... 000 ..... 1100011",
+        "format": "@b"
+      },
+      {
+        "name": "bne",
+        "bit_pattern": "....... .....    ..... 001 ..... 1100011",
+        "format": "@b"
+      },
+      {
+        "name": "blt",
+        "bit_pattern": "....... .....    ..... 100 ..... 1100011",
+        "format": "@b"
+      },
+      {
+        "name": "bge",
+        "bit_pattern": "....... .....    ..... 101 ..... 1100011",
+        "format": "@b"
+      },
+      {
+        "name": "bltu",
+        "bit_pattern": "....... .....    ..... 110 ..... 1100011",
+        "format": "@b"
+      },
+      {
+        "name": "bgeu",
+        "bit_pattern": "....... .....    ..... 111 ..... 1100011",
+        "format": "@b"
+      },
+      {
+        "name": "lb",
+        "bit_pattern": "............     ..... 000 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "lh",
+        "bit_pattern": "............     ..... 001 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "lw",
+        "bit_pattern": "............     ..... 010 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "lbu",
+        "bit_pattern": "............     ..... 100 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "lhu",
+        "bit_pattern": "............     ..... 101 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "sb",
+        "bit_pattern": ".......  .....   ..... 000 ..... 0100011",
+        "format": "@s"
+      },
+      {
+        "name": "sh",
+        "bit_pattern": ".......  .....   ..... 001 ..... 0100011",
+        "format": "@s"
+      },
+      {
+        "name": "sw",
+        "bit_pattern": ".......  .....   ..... 010 ..... 0100011",
+        "format": "@s"
+      },
+      {
+        "name": "addi",
+        "bit_pattern": "............     ..... 000 ..... 0010011",
+        "format": "@i"
+      },
+      {
+        "name": "slti",
+        "bit_pattern": "............     ..... 010 ..... 0010011",
+        "format": "@i"
+      },
+      {
+        "name": "sltiu",
+        "bit_pattern": "............     ..... 011 ..... 0010011",
+        "format": "@i"
+      },
+      {
+        "name": "xori",
+        "bit_pattern": "............     ..... 100 ..... 0010011",
+        "format": "@i"
+      },
+      {
+        "name": "ori",
+        "bit_pattern": "............     ..... 110 ..... 0010011",
+        "format": "@i"
+      },
+      {
+        "name": "andi",
+        "bit_pattern": "............     ..... 111 ..... 0010011",
+        "format": "@i"
+      },
+      {
+        "name": "slli",
+        "bit_pattern": "00000. ......    ..... 001 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "srli",
+        "bit_pattern": "00000. ......    ..... 101 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "srai",
+        "bit_pattern": "01000. ......    ..... 101 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "add",
+        "bit_pattern": "0000000 .....    ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sub",
+        "bit_pattern": "0100000 .....    ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sll",
+        "bit_pattern": "0000000 .....    ..... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "slt",
+        "bit_pattern": "0000000 .....    ..... 010 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sltu",
+        "bit_pattern": "0000000 .....    ..... 011 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "xor",
+        "bit_pattern": "0000000 .....    ..... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "srl",
+        "bit_pattern": "0000000 .....    ..... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sra",
+        "bit_pattern": "0100000 .....    ..... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "or",
+        "bit_pattern": "0000000 .....    ..... 110 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "and",
+        "bit_pattern": "0000000 .....    ..... 111 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "pause",
+        "bit_pattern": "0000 0001   0000   00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "csrrw",
+        "bit_pattern": "............     ..... 001 ..... 1110011",
+        "format": "@csr"
+      },
+      {
+        "name": "csrrs",
+        "bit_pattern": "............     ..... 010 ..... 1110011",
+        "format": "@csr"
+      },
+      {
+        "name": "csrrc",
+        "bit_pattern": "............     ..... 011 ..... 1110011",
+        "format": "@csr"
+      },
+      {
+        "name": "csrrwi",
+        "bit_pattern": "............     ..... 101 ..... 1110011",
+        "format": "@csr"
+      },
+      {
+        "name": "csrrsi",
+        "bit_pattern": "............     ..... 110 ..... 1110011",
+        "format": "@csr"
+      },
+      {
+        "name": "csrrci",
+        "bit_pattern": "............     ..... 111 ..... 1110011",
+        "format": "@csr"
+      },
+      {
+        "name": "lwu",
+        "bit_pattern": "............   ..... 110 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "ld",
+        "bit_pattern": "............   ..... 011 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "zilsd_ld",
+        "bit_pattern": "............   ..... 011 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "sd",
+        "bit_pattern": "....... .....  ..... 011 ..... 0100011",
+        "format": "@s"
+      },
+      {
+        "name": "zilsd_sd",
+        "bit_pattern": "....... .....  ..... 011 ..... 0100011",
+        "format": "@s"
+      },
+      {
+        "name": "addiw",
+        "bit_pattern": "............   ..... 000 ..... 0011011",
+        "format": "@i"
+      },
+      {
+        "name": "slliw",
+        "bit_pattern": "0000000 .....  ..... 001 ..... 0011011",
+        "format": "@sh5"
+      },
+      {
+        "name": "srliw",
+        "bit_pattern": "0000000 .....  ..... 101 ..... 0011011",
+        "format": "@sh5"
+      },
+      {
+        "name": "sraiw",
+        "bit_pattern": "0100000 .....  ..... 101 ..... 0011011",
+        "format": "@sh5"
+      },
+      {
+        "name": "addw",
+        "bit_pattern": "0000000 .....  ..... 000 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "subw",
+        "bit_pattern": "0100000 .....  ..... 000 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "sllw",
+        "bit_pattern": "0000000 .....  ..... 001 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "srlw",
+        "bit_pattern": "0000000 .....  ..... 101 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "sraw",
+        "bit_pattern": "0100000 .....  ..... 101 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "ldu",
+        "bit_pattern": "............   ..... 111 ..... 0000011",
+        "format": "@i"
+      },
+      {
+        "name": "cbo_inval",
+        "bit_pattern": "0000000 00000 ..... 010 00000 0001111",
+        "format": "@sfence_vm"
+      },
+      {
+        "name": "cbo_clean",
+        "bit_pattern": "0000000 00001 ..... 010 00000 0001111",
+        "format": "@sfence_vm"
+      },
+      {
+        "name": "cbo_flush",
+        "bit_pattern": "0000000 00010 ..... 010 00000 0001111",
+        "format": "@sfence_vm"
+      },
+      {
+        "name": "cbo_zero",
+        "bit_pattern": "0000000 00100 ..... 010 00000 0001111",
+        "format": "@sfence_vm"
+      },
+      {
+        "name": "lq",
+        "bit_pattern": "............   ..... 010 ..... 0001111",
+        "format": "@i"
+      },
+      {
+        "name": "sq",
+        "bit_pattern": "............   ..... 100 ..... 0100011",
+        "format": "@s"
+      },
+      {
+        "name": "addid",
+        "bit_pattern": "............  .....  000 ..... 1011011",
+        "format": "@i"
+      },
+      {
+        "name": "sllid",
+        "bit_pattern": "000000 ......  ..... 001 ..... 1011011",
+        "format": "@sh6"
+      },
+      {
+        "name": "srlid",
+        "bit_pattern": "000000 ......  ..... 101 ..... 1011011",
+        "format": "@sh6"
+      },
+      {
+        "name": "sraid",
+        "bit_pattern": "010000 ......  ..... 101 ..... 1011011",
+        "format": "@sh6"
+      },
+      {
+        "name": "addd",
+        "bit_pattern": "0000000 ..... .....  000 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "subd",
+        "bit_pattern": "0100000 ..... .....  000 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "slld",
+        "bit_pattern": "0000000 ..... .....  001 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "srld",
+        "bit_pattern": "0000000 ..... .....  101 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "srad",
+        "bit_pattern": "0100000 ..... .....  101 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "mul",
+        "bit_pattern": "0000001 .....  ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "mulh",
+        "bit_pattern": "0000001 .....  ..... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "mulhsu",
+        "bit_pattern": "0000001 .....  ..... 010 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "mulhu",
+        "bit_pattern": "0000001 .....  ..... 011 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "div",
+        "bit_pattern": "0000001 .....  ..... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "divu",
+        "bit_pattern": "0000001 .....  ..... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "rem",
+        "bit_pattern": "0000001 .....  ..... 110 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "remu",
+        "bit_pattern": "0000001 .....  ..... 111 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "mulw",
+        "bit_pattern": "0000001 .....  ..... 000 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "divw",
+        "bit_pattern": "0000001 .....  ..... 100 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "divuw",
+        "bit_pattern": "0000001 .....  ..... 101 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "remw",
+        "bit_pattern": "0000001 .....  ..... 110 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "remuw",
+        "bit_pattern": "0000001 .....  ..... 111 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "muld",
+        "bit_pattern": "0000001 .....  ..... 000 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "divd",
+        "bit_pattern": "0000001 .....  ..... 100 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "divud",
+        "bit_pattern": "0000001 .....  ..... 101 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "remd",
+        "bit_pattern": "0000001 .....  ..... 110 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "remud",
+        "bit_pattern": "0000001 .....  ..... 111 ..... 1111011",
+        "format": "@r"
+      },
+      {
+        "name": "lr_w",
+        "bit_pattern": "00010 . . 00000 ..... 010 ..... 0101111",
+        "format": "@atom_ld"
+      },
+      {
+        "name": "sc_w",
+        "bit_pattern": "00011 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoswap_w",
+        "bit_pattern": "00001 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "ssamoswap_w",
+        "bit_pattern": "01001 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoadd_w",
+        "bit_pattern": "00000 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoxor_w",
+        "bit_pattern": "00100 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoand_w",
+        "bit_pattern": "01100 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoor_w",
+        "bit_pattern": "01000 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomin_w",
+        "bit_pattern": "10000 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomax_w",
+        "bit_pattern": "10100 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amominu_w",
+        "bit_pattern": "11000 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomaxu_w",
+        "bit_pattern": "11100 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "lr_d",
+        "bit_pattern": "00010 . . 00000 ..... 011 ..... 0101111",
+        "format": "@atom_ld"
+      },
+      {
+        "name": "sc_d",
+        "bit_pattern": "00011 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoswap_d",
+        "bit_pattern": "00001 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "ssamoswap_d",
+        "bit_pattern": "01001 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoadd_d",
+        "bit_pattern": "00000 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoxor_d",
+        "bit_pattern": "00100 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoand_d",
+        "bit_pattern": "01100 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoor_d",
+        "bit_pattern": "01000 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomin_d",
+        "bit_pattern": "10000 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomax_d",
+        "bit_pattern": "10100 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amominu_d",
+        "bit_pattern": "11000 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomaxu_d",
+        "bit_pattern": "11100 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "flw",
+        "bit_pattern": "............   ..... 010 ..... 0000111",
+        "format": "@i"
+      },
+      {
+        "name": "fsw",
+        "bit_pattern": ".......  ..... ..... 010 ..... 0100111",
+        "format": "@s"
+      },
+      {
+        "name": "fmadd_s",
+        "bit_pattern": "..... 00 ..... ..... ... ..... 1000011",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fmsub_s",
+        "bit_pattern": "..... 00 ..... ..... ... ..... 1000111",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fnmsub_s",
+        "bit_pattern": "..... 00 ..... ..... ... ..... 1001011",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fnmadd_s",
+        "bit_pattern": "..... 00 ..... ..... ... ..... 1001111",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fadd_s",
+        "bit_pattern": "0000000  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fsub_s",
+        "bit_pattern": "0000100  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fmul_s",
+        "bit_pattern": "0001000  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fdiv_s",
+        "bit_pattern": "0001100  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fsqrt_s",
+        "bit_pattern": "0101100  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fsgnj_s",
+        "bit_pattern": "0010000  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fsgnjn_s",
+        "bit_pattern": "0010000  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fsgnjx_s",
+        "bit_pattern": "0010000  ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmin_s",
+        "bit_pattern": "0010100  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmax_s",
+        "bit_pattern": "0010100  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fcvt_w_s",
+        "bit_pattern": "1100000  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_wu_s",
+        "bit_pattern": "1100000  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fmv_x_w",
+        "bit_pattern": "1110000  00000 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "feq_s",
+        "bit_pattern": "1010000  ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "flt_s",
+        "bit_pattern": "1010000  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fle_s",
+        "bit_pattern": "1010000  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fclass_s",
+        "bit_pattern": "1110000  00000 ..... 001 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fcvt_s_w",
+        "bit_pattern": "1101000  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_s_wu",
+        "bit_pattern": "1101000  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fmv_w_x",
+        "bit_pattern": "1111000  00000 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fcvt_l_s",
+        "bit_pattern": "1100000  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_lu_s",
+        "bit_pattern": "1100000  00011 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_s_l",
+        "bit_pattern": "1101000  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_s_lu",
+        "bit_pattern": "1101000  00011 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fld",
+        "bit_pattern": "............   ..... 011 ..... 0000111",
+        "format": "@i"
+      },
+      {
+        "name": "fsd",
+        "bit_pattern": "....... .....  ..... 011 ..... 0100111",
+        "format": "@s"
+      },
+      {
+        "name": "fmadd_d",
+        "bit_pattern": "..... 01 ..... ..... ... ..... 1000011",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fmsub_d",
+        "bit_pattern": "..... 01 ..... ..... ... ..... 1000111",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fnmsub_d",
+        "bit_pattern": "..... 01 ..... ..... ... ..... 1001011",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fnmadd_d",
+        "bit_pattern": "..... 01 ..... ..... ... ..... 1001111",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fadd_d",
+        "bit_pattern": "0000001  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fsub_d",
+        "bit_pattern": "0000101  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fmul_d",
+        "bit_pattern": "0001001  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fdiv_d",
+        "bit_pattern": "0001101  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fsqrt_d",
+        "bit_pattern": "0101101  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fsgnj_d",
+        "bit_pattern": "0010001  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fsgnjn_d",
+        "bit_pattern": "0010001  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fsgnjx_d",
+        "bit_pattern": "0010001  ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmin_d",
+        "bit_pattern": "0010101  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmax_d",
+        "bit_pattern": "0010101  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fcvt_s_d",
+        "bit_pattern": "0100000  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_d_s",
+        "bit_pattern": "0100001  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "feq_d",
+        "bit_pattern": "1010001  ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "flt_d",
+        "bit_pattern": "1010001  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fle_d",
+        "bit_pattern": "1010001  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fclass_d",
+        "bit_pattern": "1110001  00000 ..... 001 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fcvt_w_d",
+        "bit_pattern": "1100001  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_wu_d",
+        "bit_pattern": "1100001  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_d_w",
+        "bit_pattern": "1101001  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_d_wu",
+        "bit_pattern": "1101001  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_l_d",
+        "bit_pattern": "1100001  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_lu_d",
+        "bit_pattern": "1100001  00011 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fmv_x_d",
+        "bit_pattern": "1110001  00000 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fcvt_d_l",
+        "bit_pattern": "1101001  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_d_lu",
+        "bit_pattern": "1101001  00011 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fmv_d_x",
+        "bit_pattern": "1111001  00000 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlv_b",
+        "bit_pattern": "0110000  00000  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlv_bu",
+        "bit_pattern": "0110000  00001  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlv_h",
+        "bit_pattern": "0110010  00000  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlv_hu",
+        "bit_pattern": "0110010  00001  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlvx_hu",
+        "bit_pattern": "0110010  00011  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlv_w",
+        "bit_pattern": "0110100  00000  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlvx_wu",
+        "bit_pattern": "0110100  00011  ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hsv_b",
+        "bit_pattern": "0110001  .....  ..... 100 00000 1110011",
+        "format": "@r2_s"
+      },
+      {
+        "name": "hsv_h",
+        "bit_pattern": "0110011  .....  ..... 100 00000 1110011",
+        "format": "@r2_s"
+      },
+      {
+        "name": "hsv_w",
+        "bit_pattern": "0110101  .....  ..... 100 00000 1110011",
+        "format": "@r2_s"
+      },
+      {
+        "name": "hfence_gvma",
+        "bit_pattern": "0110001  .....  ..... 000 00000 1110011",
+        "format": "@hfence_gvma"
+      },
+      {
+        "name": "hfence_vvma",
+        "bit_pattern": "0010001  .....  ..... 000 00000 1110011",
+        "format": "@hfence_vvma"
+      },
+      {
+        "name": "hlv_wu",
+        "bit_pattern": "0110100  00001   ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hlv_d",
+        "bit_pattern": "0110110  00000   ..... 100 ..... 1110011",
+        "format": "@r2"
+      },
+      {
+        "name": "hsv_d",
+        "bit_pattern": "0110111  .....   ..... 100 00000 1110011",
+        "format": "@r2_s"
+      },
+      {
+        "name": "vle8_v",
+        "bit_pattern": "... 000 . 00000 ..... 000 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vle16_v",
+        "bit_pattern": "... 000 . 00000 ..... 101 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vle32_v",
+        "bit_pattern": "... 000 . 00000 ..... 110 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vle64_v",
+        "bit_pattern": "... 000 . 00000 ..... 111 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vse8_v",
+        "bit_pattern": "... 000 . 00000 ..... 000 ..... 0100111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vse16_v",
+        "bit_pattern": "... 000 . 00000 ..... 101 ..... 0100111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vse32_v",
+        "bit_pattern": "... 000 . 00000 ..... 110 ..... 0100111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vse64_v",
+        "bit_pattern": "... 000 . 00000 ..... 111 ..... 0100111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vlm_v",
+        "bit_pattern": "000 000 1 01011 ..... 000 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vsm_v",
+        "bit_pattern": "000 000 1 01011 ..... 000 ..... 0100111",
+        "format": "@r2"
+      },
+      {
+        "name": "vlse8_v",
+        "bit_pattern": "... 010 . ..... ..... 000 ..... 0000111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vlse16_v",
+        "bit_pattern": "... 010 . ..... ..... 101 ..... 0000111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vlse32_v",
+        "bit_pattern": "... 010 . ..... ..... 110 ..... 0000111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vlse64_v",
+        "bit_pattern": "... 010 . ..... ..... 111 ..... 0000111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vsse8_v",
+        "bit_pattern": "... 010 . ..... ..... 000 ..... 0100111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vsse16_v",
+        "bit_pattern": "... 010 . ..... ..... 101 ..... 0100111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vsse32_v",
+        "bit_pattern": "... 010 . ..... ..... 110 ..... 0100111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vsse64_v",
+        "bit_pattern": "... 010 . ..... ..... 111 ..... 0100111",
+        "format": "@r_nfvm"
+      },
+      {
+        "name": "vlxei8_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vlxei16_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vlxei32_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vlxei64_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vsxei8_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vsxei16_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vsxei32_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vsxei64_v",
+        "bit_pattern": "...",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "vle8ff_v",
+        "bit_pattern": "... 000 . 10000 ..... 000 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vle16ff_v",
+        "bit_pattern": "... 000 . 10000 ..... 101 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vle32ff_v",
+        "bit_pattern": "... 000 . 10000 ..... 110 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vle64ff_v",
+        "bit_pattern": "... 000 . 10000 ..... 111 ..... 0000111",
+        "format": "@r2_nfvm"
+      },
+      {
+        "name": "vl1re8_v",
+        "bit_pattern": "000 000 1 01000 ..... 000 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl1re16_v",
+        "bit_pattern": "000 000 1 01000 ..... 101 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl1re32_v",
+        "bit_pattern": "000 000 1 01000 ..... 110 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl1re64_v",
+        "bit_pattern": "000 000 1 01000 ..... 111 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl2re8_v",
+        "bit_pattern": "001 000 1 01000 ..... 000 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl2re16_v",
+        "bit_pattern": "001 000 1 01000 ..... 101 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl2re32_v",
+        "bit_pattern": "001 000 1 01000 ..... 110 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl2re64_v",
+        "bit_pattern": "001 000 1 01000 ..... 111 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl4re8_v",
+        "bit_pattern": "011 000 1 01000 ..... 000 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl4re16_v",
+        "bit_pattern": "011 000 1 01000 ..... 101 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl4re32_v",
+        "bit_pattern": "011 000 1 01000 ..... 110 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl4re64_v",
+        "bit_pattern": "011 000 1 01000 ..... 111 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl8re8_v",
+        "bit_pattern": "111 000 1 01000 ..... 000 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl8re16_v",
+        "bit_pattern": "111 000 1 01000 ..... 101 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl8re32_v",
+        "bit_pattern": "111 000 1 01000 ..... 110 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vl8re64_v",
+        "bit_pattern": "111 000 1 01000 ..... 111 ..... 0000111",
+        "format": "@r2"
+      },
+      {
+        "name": "vs1r_v",
+        "bit_pattern": "000 000 1 01000 ..... 000 ..... 0100111",
+        "format": "@r2"
+      },
+      {
+        "name": "vs2r_v",
+        "bit_pattern": "001 000 1 01000 ..... 000 ..... 0100111",
+        "format": "@r2"
+      },
+      {
+        "name": "vs4r_v",
+        "bit_pattern": "011 000 1 01000 ..... 000 ..... 0100111",
+        "format": "@r2"
+      },
+      {
+        "name": "vs8r_v",
+        "bit_pattern": "111 000 1 01000 ..... 000 ..... 0100111",
+        "format": "@r2"
+      },
+      {
+        "name": "vadd_vv",
+        "bit_pattern": "000000 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vadd_vx",
+        "bit_pattern": "000000 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vadd_vi",
+        "bit_pattern": "000000 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsub_vv",
+        "bit_pattern": "000010 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsub_vx",
+        "bit_pattern": "000010 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrsub_vx",
+        "bit_pattern": "000011 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrsub_vi",
+        "bit_pattern": "000011 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwaddu_vv",
+        "bit_pattern": "110000 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwaddu_vx",
+        "bit_pattern": "110000 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwadd_vv",
+        "bit_pattern": "110001 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwadd_vx",
+        "bit_pattern": "110001 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsubu_vv",
+        "bit_pattern": "110010 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsubu_vx",
+        "bit_pattern": "110010 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsub_vv",
+        "bit_pattern": "110011 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsub_vx",
+        "bit_pattern": "110011 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwaddu_wv",
+        "bit_pattern": "110100 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwaddu_wx",
+        "bit_pattern": "110100 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwadd_wv",
+        "bit_pattern": "110101 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwadd_wx",
+        "bit_pattern": "110101 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsubu_wv",
+        "bit_pattern": "110110 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsubu_wx",
+        "bit_pattern": "110110 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsub_wv",
+        "bit_pattern": "110111 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsub_wx",
+        "bit_pattern": "110111 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vadc_vvm",
+        "bit_pattern": "010000 0 ..... ..... 000 ..... 1010111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vadc_vxm",
+        "bit_pattern": "010000 0 ..... ..... 100 ..... 1010111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vadc_vim",
+        "bit_pattern": "010000 0 ..... ..... 011 ..... 1010111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vmadc_vvm",
+        "bit_pattern": "010001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmadc_vxm",
+        "bit_pattern": "010001 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmadc_vim",
+        "bit_pattern": "010001 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsbc_vvm",
+        "bit_pattern": "010010 0 ..... ..... 000 ..... 1010111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsbc_vxm",
+        "bit_pattern": "010010 0 ..... ..... 100 ..... 1010111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vmsbc_vvm",
+        "bit_pattern": "010011 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsbc_vxm",
+        "bit_pattern": "010011 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vand_vv",
+        "bit_pattern": "001001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vand_vx",
+        "bit_pattern": "001001 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vand_vi",
+        "bit_pattern": "001001 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vor_vv",
+        "bit_pattern": "001010 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vor_vx",
+        "bit_pattern": "001010 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vor_vi",
+        "bit_pattern": "001010 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vxor_vv",
+        "bit_pattern": "001011 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vxor_vx",
+        "bit_pattern": "001011 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vxor_vi",
+        "bit_pattern": "001011 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsll_vv",
+        "bit_pattern": "100101 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsll_vx",
+        "bit_pattern": "100101 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsll_vi",
+        "bit_pattern": "100101 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsrl_vv",
+        "bit_pattern": "101000 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsrl_vx",
+        "bit_pattern": "101000 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsrl_vi",
+        "bit_pattern": "101000 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsra_vv",
+        "bit_pattern": "101001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsra_vx",
+        "bit_pattern": "101001 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsra_vi",
+        "bit_pattern": "101001 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnsrl_wv",
+        "bit_pattern": "101100 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnsrl_wx",
+        "bit_pattern": "101100 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnsrl_wi",
+        "bit_pattern": "101100 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnsra_wv",
+        "bit_pattern": "101101 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnsra_wx",
+        "bit_pattern": "101101 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnsra_wi",
+        "bit_pattern": "101101 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmseq_vv",
+        "bit_pattern": "011000 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmseq_vx",
+        "bit_pattern": "011000 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmseq_vi",
+        "bit_pattern": "011000 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsne_vv",
+        "bit_pattern": "011001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsne_vx",
+        "bit_pattern": "011001 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsne_vi",
+        "bit_pattern": "011001 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsltu_vv",
+        "bit_pattern": "011010 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsltu_vx",
+        "bit_pattern": "011010 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmslt_vv",
+        "bit_pattern": "011011 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmslt_vx",
+        "bit_pattern": "011011 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsleu_vv",
+        "bit_pattern": "011100 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsleu_vx",
+        "bit_pattern": "011100 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsleu_vi",
+        "bit_pattern": "011100 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsle_vv",
+        "bit_pattern": "011101 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsle_vx",
+        "bit_pattern": "011101 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsle_vi",
+        "bit_pattern": "011101 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsgtu_vx",
+        "bit_pattern": "011110 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsgtu_vi",
+        "bit_pattern": "011110 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsgt_vx",
+        "bit_pattern": "011111 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmsgt_vi",
+        "bit_pattern": "011111 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vminu_vv",
+        "bit_pattern": "000100 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vminu_vx",
+        "bit_pattern": "000100 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmin_vv",
+        "bit_pattern": "000101 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmin_vx",
+        "bit_pattern": "000101 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmaxu_vv",
+        "bit_pattern": "000110 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmaxu_vx",
+        "bit_pattern": "000110 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmax_vv",
+        "bit_pattern": "000111 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmax_vx",
+        "bit_pattern": "000111 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmul_vv",
+        "bit_pattern": "100101 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmul_vx",
+        "bit_pattern": "100101 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmulh_vv",
+        "bit_pattern": "100111 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmulh_vx",
+        "bit_pattern": "100111 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmulhu_vv",
+        "bit_pattern": "100100 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmulhu_vx",
+        "bit_pattern": "100100 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmulhsu_vv",
+        "bit_pattern": "100110 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmulhsu_vx",
+        "bit_pattern": "100110 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vdivu_vv",
+        "bit_pattern": "100000 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vdivu_vx",
+        "bit_pattern": "100000 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vdiv_vv",
+        "bit_pattern": "100001 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vdiv_vx",
+        "bit_pattern": "100001 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vremu_vv",
+        "bit_pattern": "100010 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vremu_vx",
+        "bit_pattern": "100010 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrem_vv",
+        "bit_pattern": "100011 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrem_vx",
+        "bit_pattern": "100011 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmulu_vv",
+        "bit_pattern": "111000 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmulu_vx",
+        "bit_pattern": "111000 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmulsu_vv",
+        "bit_pattern": "111010 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmulsu_vx",
+        "bit_pattern": "111010 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmul_vv",
+        "bit_pattern": "111011 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmul_vx",
+        "bit_pattern": "111011 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmacc_vv",
+        "bit_pattern": "101101 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmacc_vx",
+        "bit_pattern": "101101 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnmsac_vv",
+        "bit_pattern": "101111 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnmsac_vx",
+        "bit_pattern": "101111 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmadd_vv",
+        "bit_pattern": "101001 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmadd_vx",
+        "bit_pattern": "101001 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnmsub_vv",
+        "bit_pattern": "101011 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnmsub_vx",
+        "bit_pattern": "101011 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmaccu_vv",
+        "bit_pattern": "111100 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmaccu_vx",
+        "bit_pattern": "111100 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmacc_vv",
+        "bit_pattern": "111101 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmacc_vx",
+        "bit_pattern": "111101 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmaccsu_vv",
+        "bit_pattern": "111111 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmaccsu_vx",
+        "bit_pattern": "111111 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwmaccus_vx",
+        "bit_pattern": "111110 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmv_v_v",
+        "bit_pattern": "010111 1 00000 ..... 000 ..... 1010111",
+        "format": "@r2"
+      },
+      {
+        "name": "vmv_v_x",
+        "bit_pattern": "010111 1 00000 ..... 100 ..... 1010111",
+        "format": "@r2"
+      },
+      {
+        "name": "vmv_v_i",
+        "bit_pattern": "010111 1 00000 ..... 011 ..... 1010111",
+        "format": "@r2"
+      },
+      {
+        "name": "vmerge_vvm",
+        "bit_pattern": "010111 0 ..... ..... 000 ..... 1010111",
+        "format": "@r_vm_0"
+      },
+      {
+        "name": "vmerge_vxm",
+        "bit_pattern": "010111 0 ..... ..... 100 ..... 1010111",
+        "format": "@r_vm_0"
+      },
+      {
+        "name": "vmerge_vim",
+        "bit_pattern": "010111 0 ..... ..... 011 ..... 1010111",
+        "format": "@r_vm_0"
+      },
+      {
+        "name": "vsaddu_vv",
+        "bit_pattern": "100000 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsaddu_vx",
+        "bit_pattern": "100000 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsaddu_vi",
+        "bit_pattern": "100000 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsadd_vv",
+        "bit_pattern": "100001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsadd_vx",
+        "bit_pattern": "100001 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsadd_vi",
+        "bit_pattern": "100001 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssubu_vv",
+        "bit_pattern": "100010 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssubu_vx",
+        "bit_pattern": "100010 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssub_vv",
+        "bit_pattern": "100011 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssub_vx",
+        "bit_pattern": "100011 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vaadd_vv",
+        "bit_pattern": "001001 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vaadd_vx",
+        "bit_pattern": "001001 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vaaddu_vv",
+        "bit_pattern": "001000 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vaaddu_vx",
+        "bit_pattern": "001000 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vasub_vv",
+        "bit_pattern": "001011 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vasub_vx",
+        "bit_pattern": "001011 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vasubu_vv",
+        "bit_pattern": "001010 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vasubu_vx",
+        "bit_pattern": "001010 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsmul_vv",
+        "bit_pattern": "100111 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vsmul_vx",
+        "bit_pattern": "100111 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssrl_vv",
+        "bit_pattern": "101010 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssrl_vx",
+        "bit_pattern": "101010 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssrl_vi",
+        "bit_pattern": "101010 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssra_vv",
+        "bit_pattern": "101011 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssra_vx",
+        "bit_pattern": "101011 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vssra_vi",
+        "bit_pattern": "101011 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnclipu_wv",
+        "bit_pattern": "101110 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnclipu_wx",
+        "bit_pattern": "101110 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnclipu_wi",
+        "bit_pattern": "101110 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnclip_wv",
+        "bit_pattern": "101111 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnclip_wx",
+        "bit_pattern": "101111 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vnclip_wi",
+        "bit_pattern": "101111 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfadd_vv",
+        "bit_pattern": "000000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfadd_vf",
+        "bit_pattern": "000000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsub_vv",
+        "bit_pattern": "000010 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsub_vf",
+        "bit_pattern": "000010 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfrsub_vf",
+        "bit_pattern": "100111 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwadd_vv",
+        "bit_pattern": "110000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwadd_vf",
+        "bit_pattern": "110000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwadd_wv",
+        "bit_pattern": "110100 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwadd_wf",
+        "bit_pattern": "110100 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwsub_vv",
+        "bit_pattern": "110010 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwsub_vf",
+        "bit_pattern": "110010 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwsub_wv",
+        "bit_pattern": "110110 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwsub_wf",
+        "bit_pattern": "110110 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmul_vv",
+        "bit_pattern": "100100 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmul_vf",
+        "bit_pattern": "100100 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfdiv_vv",
+        "bit_pattern": "100000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfdiv_vf",
+        "bit_pattern": "100000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfrdiv_vf",
+        "bit_pattern": "100001 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmul_vv",
+        "bit_pattern": "111000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmul_vf",
+        "bit_pattern": "111000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmacc_vv",
+        "bit_pattern": "101100 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmacc_vv",
+        "bit_pattern": "101101 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmacc_vf",
+        "bit_pattern": "101101 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmacc_vf",
+        "bit_pattern": "101100 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmsac_vv",
+        "bit_pattern": "101110 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmsac_vf",
+        "bit_pattern": "101110 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmsac_vv",
+        "bit_pattern": "101111 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmsac_vf",
+        "bit_pattern": "101111 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmadd_vv",
+        "bit_pattern": "101000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmadd_vf",
+        "bit_pattern": "101000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmadd_vv",
+        "bit_pattern": "101001 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmadd_vf",
+        "bit_pattern": "101001 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmsub_vv",
+        "bit_pattern": "101010 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmsub_vf",
+        "bit_pattern": "101010 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmsub_vv",
+        "bit_pattern": "101011 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfnmsub_vf",
+        "bit_pattern": "101011 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmacc_vv",
+        "bit_pattern": "111100 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmacc_vf",
+        "bit_pattern": "111100 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwnmacc_vv",
+        "bit_pattern": "111101 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwnmacc_vf",
+        "bit_pattern": "111101 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmsac_vv",
+        "bit_pattern": "111110 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmsac_vf",
+        "bit_pattern": "111110 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwnmsac_vv",
+        "bit_pattern": "111111 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwnmsac_vf",
+        "bit_pattern": "111111 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsqrt_v",
+        "bit_pattern": "010011 . ..... 00000 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfrsqrt7_v",
+        "bit_pattern": "010011 . ..... 00100 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfrec7_v",
+        "bit_pattern": "010011 . ..... 00101 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfmin_vv",
+        "bit_pattern": "000100 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmin_vf",
+        "bit_pattern": "000100 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmax_vv",
+        "bit_pattern": "000110 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfmax_vf",
+        "bit_pattern": "000110 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsgnj_vv",
+        "bit_pattern": "001000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsgnj_vf",
+        "bit_pattern": "001000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsgnjn_vv",
+        "bit_pattern": "001001 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsgnjn_vf",
+        "bit_pattern": "001001 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsgnjx_vv",
+        "bit_pattern": "001010 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfsgnjx_vf",
+        "bit_pattern": "001010 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfslide1up_vf",
+        "bit_pattern": "001110 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfslide1down_vf",
+        "bit_pattern": "001111 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfeq_vv",
+        "bit_pattern": "011000 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfeq_vf",
+        "bit_pattern": "011000 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfne_vv",
+        "bit_pattern": "011100 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfne_vf",
+        "bit_pattern": "011100 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmflt_vv",
+        "bit_pattern": "011011 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmflt_vf",
+        "bit_pattern": "011011 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfle_vv",
+        "bit_pattern": "011001 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfle_vf",
+        "bit_pattern": "011001 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfgt_vf",
+        "bit_pattern": "011101 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmfge_vf",
+        "bit_pattern": "011111 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfclass_v",
+        "bit_pattern": "010011 . ..... 10000 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfmerge_vfm",
+        "bit_pattern": "010111 0 ..... ..... 101 ..... 1010111",
+        "format": "@r_vm_0"
+      },
+      {
+        "name": "vfmv_v_f",
+        "bit_pattern": "010111 1 00000 ..... 101 ..... 1010111",
+        "format": "@r2"
+      },
+      {
+        "name": "vfcvt_xu_f_v",
+        "bit_pattern": "010010 . ..... 00000 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfcvt_x_f_v",
+        "bit_pattern": "010010 . ..... 00001 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfcvt_f_xu_v",
+        "bit_pattern": "010010 . ..... 00010 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfcvt_f_x_v",
+        "bit_pattern": "010010 . ..... 00011 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfcvt_rtz_xu_f_v",
+        "bit_pattern": "010010 . ..... 00110 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfcvt_rtz_x_f_v",
+        "bit_pattern": "010010 . ..... 00111 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_xu_f_v",
+        "bit_pattern": "010010 . ..... 01000 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_x_f_v",
+        "bit_pattern": "010010 . ..... 01001 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_f_xu_v",
+        "bit_pattern": "010010 . ..... 01010 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_f_x_v",
+        "bit_pattern": "010010 . ..... 01011 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_f_f_v",
+        "bit_pattern": "010010 . ..... 01100 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_rtz_xu_f_v",
+        "bit_pattern": "010010 . ..... 01110 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvt_rtz_x_f_v",
+        "bit_pattern": "010010 . ..... 01111 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_xu_f_w",
+        "bit_pattern": "010010 . ..... 10000 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_x_f_w",
+        "bit_pattern": "010010 . ..... 10001 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_f_xu_w",
+        "bit_pattern": "010010 . ..... 10010 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_f_x_w",
+        "bit_pattern": "010010 . ..... 10011 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_f_f_w",
+        "bit_pattern": "010010 . ..... 10100 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_rod_f_f_w",
+        "bit_pattern": "010010 . ..... 10101 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_rtz_xu_f_w",
+        "bit_pattern": "010010 . ..... 10110 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfncvt_rtz_x_f_w",
+        "bit_pattern": "010010 . ..... 10111 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vredsum_vs",
+        "bit_pattern": "000000 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredand_vs",
+        "bit_pattern": "000001 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredor_vs",
+        "bit_pattern": "000010 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredxor_vs",
+        "bit_pattern": "000011 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredminu_vs",
+        "bit_pattern": "000100 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredmin_vs",
+        "bit_pattern": "000101 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredmaxu_vs",
+        "bit_pattern": "000110 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vredmax_vs",
+        "bit_pattern": "000111 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwredsumu_vs",
+        "bit_pattern": "110000 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwredsum_vs",
+        "bit_pattern": "110001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfredusum_vs",
+        "bit_pattern": "000001 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfredosum_vs",
+        "bit_pattern": "000011 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfredmin_vs",
+        "bit_pattern": "000101 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfredmax_vs",
+        "bit_pattern": "000111 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwredusum_vs",
+        "bit_pattern": "110001 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwredosum_vs",
+        "bit_pattern": "110011 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vmand_mm",
+        "bit_pattern": "011001 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmnand_mm",
+        "bit_pattern": "011101 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmandn_mm",
+        "bit_pattern": "011000 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmxor_mm",
+        "bit_pattern": "011011 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmor_mm",
+        "bit_pattern": "011010 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmnor_mm",
+        "bit_pattern": "011110 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmorn_mm",
+        "bit_pattern": "011100 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmxnor_mm",
+        "bit_pattern": "011111 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vcpop_m",
+        "bit_pattern": "010000 . ..... 10000 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfirst_m",
+        "bit_pattern": "010000 . ..... 10001 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vmsbf_m",
+        "bit_pattern": "010100 . ..... 00001 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vmsif_m",
+        "bit_pattern": "010100 . ..... 00011 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vmsof_m",
+        "bit_pattern": "010100 . ..... 00010 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "viota_m",
+        "bit_pattern": "010100 . ..... 10000 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vid_v",
+        "bit_pattern": "010100 . 00000 10001 010 ..... 1010111",
+        "format": "@r1_vm"
+      },
+      {
+        "name": "vmv_x_s",
+        "bit_pattern": "010000 1 ..... 00000 010 ..... 1010111",
+        "format": "@r2rd"
+      },
+      {
+        "name": "vmv_s_x",
+        "bit_pattern": "010000 1 00000 ..... 110 ..... 1010111",
+        "format": "@r2"
+      },
+      {
+        "name": "vfmv_f_s",
+        "bit_pattern": "010000 1 ..... 00000 001 ..... 1010111",
+        "format": "@r2rd"
+      },
+      {
+        "name": "vfmv_s_f",
+        "bit_pattern": "010000 1 00000 ..... 101 ..... 1010111",
+        "format": "@r2"
+      },
+      {
+        "name": "vslideup_vx",
+        "bit_pattern": "001110 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vslideup_vi",
+        "bit_pattern": "001110 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vslide1up_vx",
+        "bit_pattern": "001110 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vslidedown_vx",
+        "bit_pattern": "001111 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vslidedown_vi",
+        "bit_pattern": "001111 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vslide1down_vx",
+        "bit_pattern": "001111 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrgather_vv",
+        "bit_pattern": "001100 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrgatherei16_vv",
+        "bit_pattern": "001110 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrgather_vx",
+        "bit_pattern": "001100 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrgather_vi",
+        "bit_pattern": "001100 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vcompress_vm",
+        "bit_pattern": "010111 1 ..... ..... 010 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "vmv1r_v",
+        "bit_pattern": "100111 1 ..... 00000 011 ..... 1010111",
+        "format": "@r2rd"
+      },
+      {
+        "name": "vmv2r_v",
+        "bit_pattern": "100111 1 ..... 00001 011 ..... 1010111",
+        "format": "@r2rd"
+      },
+      {
+        "name": "vmv4r_v",
+        "bit_pattern": "100111 1 ..... 00011 011 ..... 1010111",
+        "format": "@r2rd"
+      },
+      {
+        "name": "vmv8r_v",
+        "bit_pattern": "100111 1 ..... 00111 011 ..... 1010111",
+        "format": "@r2rd"
+      },
+      {
+        "name": "vzext_vf2",
+        "bit_pattern": "010010 . ..... 00110 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vzext_vf4",
+        "bit_pattern": "010010 . ..... 00100 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vzext_vf8",
+        "bit_pattern": "010010 . ..... 00010 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vsext_vf2",
+        "bit_pattern": "010010 . ..... 00111 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vsext_vf4",
+        "bit_pattern": "010010 . ..... 00101 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vsext_vf8",
+        "bit_pattern": "010010 . ..... 00011 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vsetvli",
+        "bit_pattern": "0 ........... ..... 111 ..... 1010111",
+        "format": "@r2_zimm11"
+      },
+      {
+        "name": "vsetivli",
+        "bit_pattern": "11 .......... ..... 111 ..... 1010111",
+        "format": "@r2_zimm10"
+      },
+      {
+        "name": "vsetvl",
+        "bit_pattern": "1000000 ..... ..... 111 ..... 1010111",
+        "format": "@r"
+      },
+      {
+        "name": "wrs_nto",
+        "bit_pattern": "000000001101 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "wrs_sto",
+        "bit_pattern": "000000011101 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "sh1add",
+        "bit_pattern": "0010000 .......... 010 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sh2add",
+        "bit_pattern": "0010000 .......... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sh3add",
+        "bit_pattern": "0010000 .......... 110 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "add_uw",
+        "bit_pattern": "0000100 .......... 000 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "sh1add_uw",
+        "bit_pattern": "0010000 .......... 010 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "sh2add_uw",
+        "bit_pattern": "0010000 .......... 100 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "sh3add_uw",
+        "bit_pattern": "0010000 .......... 110 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "slli_uw",
+        "bit_pattern": "00001 ............ 001 ..... 0011011",
+        "format": "@sh"
+      },
+      {
+        "name": "andn",
+        "bit_pattern": "0100000 .......... 111 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "rol",
+        "bit_pattern": "0110000 .......... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "ror",
+        "bit_pattern": "0110000 .......... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "rori",
+        "bit_pattern": "01100 ............ 101 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "rev8_32",
+        "bit_pattern": "011010 011000 ..... 101 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "zext_h_32",
+        "bit_pattern": "0000100 00000 ..... 100 ..... 0110011",
+        "format": "@r2"
+      },
+      {
+        "name": "pack",
+        "bit_pattern": "0000100 ..... ..... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "xnor",
+        "bit_pattern": "0100000 .......... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "clz",
+        "bit_pattern": "011000 000000 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "cpop",
+        "bit_pattern": "011000 000010 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "ctz",
+        "bit_pattern": "011000 000001 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "max",
+        "bit_pattern": "0000101 .......... 110 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "maxu",
+        "bit_pattern": "0000101 .......... 111 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "min",
+        "bit_pattern": "0000101 .......... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "minu",
+        "bit_pattern": "0000101 .......... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "orc_b",
+        "bit_pattern": "001010 000111 ..... 101 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "orn",
+        "bit_pattern": "0100000 .......... 110 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sext_b",
+        "bit_pattern": "011000 000100 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sext_h",
+        "bit_pattern": "011000 000101 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "brev8",
+        "bit_pattern": "0110100 00111 ..... 101 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "packh",
+        "bit_pattern": "0000100  .......... 111 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "unzip",
+        "bit_pattern": "0000100 01111 ..... 101 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "zip",
+        "bit_pattern": "0000100 01111 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "rev8_64",
+        "bit_pattern": "011010 111000 ..... 101 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "rolw",
+        "bit_pattern": "0110000 .......... 001 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "roriw",
+        "bit_pattern": "0110000 .......... 101 ..... 0011011",
+        "format": "@sh5"
+      },
+      {
+        "name": "rorw",
+        "bit_pattern": "0110000 .......... 101 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "zext_h_64",
+        "bit_pattern": "0000100 00000 ..... 100 ..... 0111011",
+        "format": "@r2"
+      },
+      {
+        "name": "packw",
+        "bit_pattern": "0000100 ..... ..... 100 ..... 0111011",
+        "format": "@r"
+      },
+      {
+        "name": "clzw",
+        "bit_pattern": "0110000 00000 ..... 001 ..... 0011011",
+        "format": "@r2"
+      },
+      {
+        "name": "ctzw",
+        "bit_pattern": "0110000 00001 ..... 001 ..... 0011011",
+        "format": "@r2"
+      },
+      {
+        "name": "cpopw",
+        "bit_pattern": "0110000 00010 ..... 001 ..... 0011011",
+        "format": "@r2"
+      },
+      {
+        "name": "clmul",
+        "bit_pattern": "0000101 .......... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "clmulh",
+        "bit_pattern": "0000101 .......... 011 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "clmulr",
+        "bit_pattern": "0000101 .......... 010 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "xperm4",
+        "bit_pattern": "0010100 .......... 010 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "xperm8",
+        "bit_pattern": "0010100 .......... 100 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "bclr",
+        "bit_pattern": "0100100 .......... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "bclri",
+        "bit_pattern": "01001. ........... 001 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "bext",
+        "bit_pattern": "0100100 .......... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "bexti",
+        "bit_pattern": "01001. ........... 101 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "binv",
+        "bit_pattern": "0110100 .......... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "binvi",
+        "bit_pattern": "01101. ........... 001 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "bset",
+        "bit_pattern": "0010100 .......... 001 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "bseti",
+        "bit_pattern": "00101. ........... 001 ..... 0010011",
+        "format": "@sh"
+      },
+      {
+        "name": "fli_s",
+        "bit_pattern": "1111000 00001 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fli_d",
+        "bit_pattern": "1111001 00001 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fli_h",
+        "bit_pattern": "1111010 00001 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fminm_s",
+        "bit_pattern": "0010100 ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmaxm_s",
+        "bit_pattern": "0010100 ..... ..... 011 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fminm_d",
+        "bit_pattern": "0010101 ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmaxm_d",
+        "bit_pattern": "0010101 ..... ..... 011 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fminm_h",
+        "bit_pattern": "0010110 ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmaxm_h",
+        "bit_pattern": "0010110 ..... ..... 011 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fround_s",
+        "bit_pattern": "0100000 00100 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "froundnx_s",
+        "bit_pattern": "0100000 00101 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fround_d",
+        "bit_pattern": "0100001 00100 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "froundnx_d",
+        "bit_pattern": "0100001 00101 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fround_h",
+        "bit_pattern": "0100010 00100 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "froundnx_h",
+        "bit_pattern": "0100010 00101 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvtmod_w_d",
+        "bit_pattern": "1100001 01000 ..... 001 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fmvh_x_d",
+        "bit_pattern": "1110001 00001 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fmvp_d_x",
+        "bit_pattern": "1011001 ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fleq_s",
+        "bit_pattern": "1010000 ..... ..... 100 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fltq_s",
+        "bit_pattern": "1010000 ..... ..... 101 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fleq_d",
+        "bit_pattern": "1010001 ..... ..... 100 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fltq_d",
+        "bit_pattern": "1010001 ..... ..... 101 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fleq_h",
+        "bit_pattern": "1010010 ..... ..... 100 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fltq_h",
+        "bit_pattern": "1010010 ..... ..... 101 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "flh",
+        "bit_pattern": "............   ..... 001 ..... 0000111",
+        "format": "@i"
+      },
+      {
+        "name": "fsh",
+        "bit_pattern": ".......  ..... ..... 001 ..... 0100111",
+        "format": "@s"
+      },
+      {
+        "name": "fmadd_h",
+        "bit_pattern": "..... 10 ..... ..... ... ..... 1000011",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fmsub_h",
+        "bit_pattern": "..... 10 ..... ..... ... ..... 1000111",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fnmsub_h",
+        "bit_pattern": "..... 10 ..... ..... ... ..... 1001011",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fnmadd_h",
+        "bit_pattern": "..... 10 ..... ..... ... ..... 1001111",
+        "format": "@r4_rm"
+      },
+      {
+        "name": "fadd_h",
+        "bit_pattern": "0000010  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fsub_h",
+        "bit_pattern": "0000110  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fmul_h",
+        "bit_pattern": "0001010  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fdiv_h",
+        "bit_pattern": "0001110  ..... ..... ... ..... 1010011",
+        "format": "@r_rm"
+      },
+      {
+        "name": "fsqrt_h",
+        "bit_pattern": "0101110  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fsgnj_h",
+        "bit_pattern": "0010010  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fsgnjn_h",
+        "bit_pattern": "0010010  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fsgnjx_h",
+        "bit_pattern": "0010010  ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmin_h",
+        "bit_pattern": "0010110  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fmax_h",
+        "bit_pattern": "0010110  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fcvt_h_s",
+        "bit_pattern": "0100010  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_s_h",
+        "bit_pattern": "0100000  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_h_d",
+        "bit_pattern": "0100010  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_d_h",
+        "bit_pattern": "0100001  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_w_h",
+        "bit_pattern": "1100010  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_wu_h",
+        "bit_pattern": "1100010  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fmv_x_h",
+        "bit_pattern": "1110010  00000 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "feq_h",
+        "bit_pattern": "1010010  ..... ..... 010 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "flt_h",
+        "bit_pattern": "1010010  ..... ..... 001 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fle_h",
+        "bit_pattern": "1010010  ..... ..... 000 ..... 1010011",
+        "format": "@r"
+      },
+      {
+        "name": "fclass_h",
+        "bit_pattern": "1110010  00000 ..... 001 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fcvt_h_w",
+        "bit_pattern": "1101010  00000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_h_wu",
+        "bit_pattern": "1101010  00001 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fmv_h_x",
+        "bit_pattern": "1111010  00000 ..... 000 ..... 1010011",
+        "format": "@r2"
+      },
+      {
+        "name": "fcvt_l_h",
+        "bit_pattern": "1100010  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_lu_h",
+        "bit_pattern": "1100010  00011 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_h_l",
+        "bit_pattern": "1101010  00010 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_h_lu",
+        "bit_pattern": "1101010  00011 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "sinval_vma",
+        "bit_pattern": "0001011 ..... ..... 000 00000 1110011",
+        "format": "@sfence_vma"
+      },
+      {
+        "name": "sfence_w_inval",
+        "bit_pattern": "0001100 00000 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "sfence_inval_ir",
+        "bit_pattern": "0001100 00001 00000 000 00000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "hinval_vvma",
+        "bit_pattern": "0010011 ..... ..... 000 00000 1110011",
+        "format": "@hfence_vvma"
+      },
+      {
+        "name": "hinval_gvma",
+        "bit_pattern": "0110011 ..... ..... 000 00000 1110011",
+        "format": "@hfence_gvma"
+      },
+      {
+        "name": "aes32dsmi",
+        "bit_pattern": ".. 10111 ..... ..... 000 ..... 0110011",
+        "format": "@k_aes"
+      },
+      {
+        "name": "aes32dsi",
+        "bit_pattern": ".. 10101 ..... ..... 000 ..... 0110011",
+        "format": "@k_aes"
+      },
+      {
+        "name": "aes64dsm",
+        "bit_pattern": "00 11111 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "aes64ds",
+        "bit_pattern": "00 11101 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "aes64im",
+        "bit_pattern": "00 11000 00000 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "aes32esmi",
+        "bit_pattern": ".. 10011 ..... ..... 000 ..... 0110011",
+        "format": "@k_aes"
+      },
+      {
+        "name": "aes32esi",
+        "bit_pattern": ".. 10001 ..... ..... 000 ..... 0110011",
+        "format": "@k_aes"
+      },
+      {
+        "name": "aes64es",
+        "bit_pattern": "00 11001 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "aes64esm",
+        "bit_pattern": "00 11011 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "aes64ks2",
+        "bit_pattern": "01 11111 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "aes64ks1i",
+        "bit_pattern": "00 11000 1.... ..... 001 ..... 0010011",
+        "format": "@i_aes"
+      },
+      {
+        "name": "sha256sig0",
+        "bit_pattern": "00 01000 00010 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha256sig1",
+        "bit_pattern": "00 01000 00011 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha256sum0",
+        "bit_pattern": "00 01000 00000 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha256sum1",
+        "bit_pattern": "00 01000 00001 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha512sum0r",
+        "bit_pattern": "01 01000 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sha512sum1r",
+        "bit_pattern": "01 01001 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sha512sig0l",
+        "bit_pattern": "01 01010 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sha512sig0h",
+        "bit_pattern": "01 01110 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sha512sig1l",
+        "bit_pattern": "01 01011 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sha512sig1h",
+        "bit_pattern": "01 01111 ..... ..... 000 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "sha512sig0",
+        "bit_pattern": "00 01000 00110 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha512sig1",
+        "bit_pattern": "00 01000 00111 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha512sum0",
+        "bit_pattern": "00 01000 00100 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sha512sum1",
+        "bit_pattern": "00 01000 00101 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sm3p0",
+        "bit_pattern": "00 01000 01000 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sm3p1",
+        "bit_pattern": "00 01000 01001 ..... 001 ..... 0010011",
+        "format": "@r2"
+      },
+      {
+        "name": "sm4ed",
+        "bit_pattern": ".. 11000 ..... ..... 000 ..... 0110011",
+        "format": "@k_aes"
+      },
+      {
+        "name": "sm4ks",
+        "bit_pattern": ".. 11010 ..... ..... 000 ..... 0110011",
+        "format": "@k_aes"
+      },
+      {
+        "name": "czero_eqz",
+        "bit_pattern": "0000111  ..... ..... 101 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "czero_nez",
+        "bit_pattern": "0000111  ..... ..... 111 ..... 0110011",
+        "format": "@r"
+      },
+      {
+        "name": "fcvt_bf16_s",
+        "bit_pattern": "0100010  01000 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "fcvt_s_bf16",
+        "bit_pattern": "0100000  00110 ..... ... ..... 1010011",
+        "format": "@r2_rm"
+      },
+      {
+        "name": "vfncvtbf16_f_f_w",
+        "bit_pattern": "010010 . ..... 11101 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwcvtbf16_f_f_v",
+        "bit_pattern": "010010 . ..... 01101 001 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vfwmaccbf16_vv",
+        "bit_pattern": "111011 . ..... ..... 001 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vfwmaccbf16_vf",
+        "bit_pattern": "111011 . ..... ..... 101 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vclmul_vv",
+        "bit_pattern": "001100 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vclmul_vx",
+        "bit_pattern": "001100 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vclmulh_vv",
+        "bit_pattern": "001101 . ..... ..... 010 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vclmulh_vx",
+        "bit_pattern": "001101 . ..... ..... 110 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrol_vv",
+        "bit_pattern": "010101 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vrol_vx",
+        "bit_pattern": "010101 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vror_vv",
+        "bit_pattern": "010100 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vror_vx",
+        "bit_pattern": "010100 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vror_vi",
+        "bit_pattern": "01010. . ..... ..... 011 ..... 1010111",
+        "format": "@r2_zimm6"
+      },
+      {
+        "name": "vbrev8_v",
+        "bit_pattern": "010010 . ..... 01000 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vrev8_v",
+        "bit_pattern": "010010 . ..... 01001 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vandn_vv",
+        "bit_pattern": "000001 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vandn_vx",
+        "bit_pattern": "000001 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vbrev_v",
+        "bit_pattern": "010010 . ..... 01010 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vclz_v",
+        "bit_pattern": "010010 . ..... 01100 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vctz_v",
+        "bit_pattern": "010010 . ..... 01101 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vcpop_v",
+        "bit_pattern": "010010 . ..... 01110 010 ..... 1010111",
+        "format": "@r2_vm"
+      },
+      {
+        "name": "vwsll_vv",
+        "bit_pattern": "110101 . ..... ..... 000 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsll_vx",
+        "bit_pattern": "110101 . ..... ..... 100 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vwsll_vi",
+        "bit_pattern": "110101 . ..... ..... 011 ..... 1010111",
+        "format": "@r_vm"
+      },
+      {
+        "name": "vaesef_vv",
+        "bit_pattern": "101000 1 ..... 00011 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesef_vs",
+        "bit_pattern": "101001 1 ..... 00011 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesdf_vv",
+        "bit_pattern": "101000 1 ..... 00001 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesdf_vs",
+        "bit_pattern": "101001 1 ..... 00001 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesem_vv",
+        "bit_pattern": "101000 1 ..... 00010 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesem_vs",
+        "bit_pattern": "101001 1 ..... 00010 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesdm_vv",
+        "bit_pattern": "101000 1 ..... 00000 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesdm_vs",
+        "bit_pattern": "101001 1 ..... 00000 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaesz_vs",
+        "bit_pattern": "101001 1 ..... 00111 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vaeskf1_vi",
+        "bit_pattern": "100010 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vaeskf2_vi",
+        "bit_pattern": "101010 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsha2ms_vv",
+        "bit_pattern": "101101 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsha2ch_vv",
+        "bit_pattern": "101110 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsha2cl_vv",
+        "bit_pattern": "101111 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsm3me_vv",
+        "bit_pattern": "100000 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsm3c_vi",
+        "bit_pattern": "101011 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vghsh_vv",
+        "bit_pattern": "101100 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vgmul_vv",
+        "bit_pattern": "101000 1 ..... 10001 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vsm4k_vi",
+        "bit_pattern": "100001 1 ..... ..... 010 ..... 1110111",
+        "format": "@r_vm_1"
+      },
+      {
+        "name": "vsm4r_vv",
+        "bit_pattern": "101000 1 ..... 10000 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "vsm4r_vs",
+        "bit_pattern": "101001 1 ..... 10000 010 ..... 1110111",
+        "format": "@r2_vm_1"
+      },
+      {
+        "name": "amocas_w",
+        "bit_pattern": "00101 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amocas_d",
+        "bit_pattern": "00101 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amocas_q",
+        "bit_pattern": "00101 . . ..... ..... 100 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "ssrdp",
+        "bit_pattern": "1100110 11100 00000 100",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "sspopchk",
+        "bit_pattern": "1100110 11100 00001 100 00000 1110011",
+        "format": "&r2"
+      },
+      {
+        "name": "sspopchk",
+        "bit_pattern": "1100110 11100 00101 100 00000 1110011",
+        "format": "&r2"
+      },
+      {
+        "name": "mop_r_n",
+        "bit_pattern": "1 . 00 .. 0111 .. ..... 100 ..... 1110011",
+        "format": "@mop5"
+      },
+      {
+        "name": "sspush",
+        "bit_pattern": "1100111 00001  00000 100 00000 1110011",
+        "format": "&r2_s"
+      },
+      {
+        "name": "sspush",
+        "bit_pattern": "1100111 00101  00000 100 00000 1110011",
+        "format": "&r2_s"
+      },
+      {
+        "name": "mop_rr_n",
+        "bit_pattern": "1 . 00 .. 1 ..... ..... 100 ..... 1110011",
+        "format": "@mop3"
+      },
+      {
+        "name": "amoswap_b",
+        "bit_pattern": "00001 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoadd_b",
+        "bit_pattern": "00000 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoxor_b",
+        "bit_pattern": "00100 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoand_b",
+        "bit_pattern": "01100 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoor_b",
+        "bit_pattern": "01000 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomin_b",
+        "bit_pattern": "10000 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomax_b",
+        "bit_pattern": "10100 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amominu_b",
+        "bit_pattern": "11000 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomaxu_b",
+        "bit_pattern": "11100 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoswap_h",
+        "bit_pattern": "00001 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoadd_h",
+        "bit_pattern": "00000 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoxor_h",
+        "bit_pattern": "00100 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoand_h",
+        "bit_pattern": "01100 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amoor_h",
+        "bit_pattern": "01000 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomin_h",
+        "bit_pattern": "10000 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomax_h",
+        "bit_pattern": "10100 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amominu_h",
+        "bit_pattern": "11000 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amomaxu_h",
+        "bit_pattern": "11100 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amocas_b",
+        "bit_pattern": "00101 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "amocas_h",
+        "bit_pattern": "00101 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "lb_aqrl",
+        "bit_pattern": "00110 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "lh_aqrl",
+        "bit_pattern": "00110 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "lw_aqrl",
+        "bit_pattern": "00110 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "ld_aqrl",
+        "bit_pattern": "00110 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "sb_aqrl",
+        "bit_pattern": "00111 . . ..... ..... 000 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "sh_aqrl",
+        "bit_pattern": "00111 . . ..... ..... 001 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "sw_aqrl",
+        "bit_pattern": "00111 . . ..... ..... 010 ..... 0101111",
+        "format": "@atom_st"
+      },
+      {
+        "name": "sd_aqrl",
+        "bit_pattern": "00111 . . ..... ..... 011 ..... 0101111",
+        "format": "@atom_st"
+      }
+    ],
+    "qemu_arm64_insns": [
+      {
+        "name": "ADR",
+        "bit_pattern": "0 .. 10000 ................... .....",
+        "format": "@pcrel"
+      },
+      {
+        "name": "ADRP",
+        "bit_pattern": "1 .. 10000 ................... .....",
+        "format": "@pcrel"
+      },
+      {
+        "name": "ADD_i",
+        "bit_pattern": ". 00 100010 0 ............ ..... .....",
+        "format": "@addsub_imm"
+      },
+      {
+        "name": "ADD_i",
+        "bit_pattern": ". 00 100010 1 ............ ..... .....",
+        "format": "@addsub_imm12"
+      },
+      {
+        "name": "ADDS_i",
+        "bit_pattern": ". 01 100010 0 ............ ..... .....",
+        "format": "@addsub_imm"
+      },
+      {
+        "name": "ADDS_i",
+        "bit_pattern": ". 01 100010 1 ............ ..... .....",
+        "format": "@addsub_imm12"
+      },
+      {
+        "name": "SUB_i",
+        "bit_pattern": ". 10 100010 0 ............ ..... .....",
+        "format": "@addsub_imm"
+      },
+      {
+        "name": "SUB_i",
+        "bit_pattern": ". 10 100010 1 ............ ..... .....",
+        "format": "@addsub_imm12"
+      },
+      {
+        "name": "SUBS_i",
+        "bit_pattern": ". 11 100010 0 ............ ..... .....",
+        "format": "@addsub_imm"
+      },
+      {
+        "name": "SUBS_i",
+        "bit_pattern": ". 11 100010 1 ............ ..... .....",
+        "format": "@addsub_imm12"
+      },
+      {
+        "name": "ADDG_i",
+        "bit_pattern": "1 00 100011 0 ...... 00 .... ..... .....",
+        "format": "@addsub_imm_tag"
+      },
+      {
+        "name": "SUBG_i",
+        "bit_pattern": "1 10 100011 0 ...... 00 .... ..... .....",
+        "format": "@addsub_imm_tag"
+      },
+      {
+        "name": "AND_i",
+        "bit_pattern": ". 00 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_64"
+      },
+      {
+        "name": "AND_i",
+        "bit_pattern": ". 00 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_32"
+      },
+      {
+        "name": "ORR_i",
+        "bit_pattern": ". 01 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_64"
+      },
+      {
+        "name": "ORR_i",
+        "bit_pattern": ". 01 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_32"
+      },
+      {
+        "name": "EOR_i",
+        "bit_pattern": ". 10 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_64"
+      },
+      {
+        "name": "EOR_i",
+        "bit_pattern": ". 10 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_32"
+      },
+      {
+        "name": "ANDS_i",
+        "bit_pattern": ". 11 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_64"
+      },
+      {
+        "name": "ANDS_i",
+        "bit_pattern": ". 11 100100 . ...... ...... ..... .....",
+        "format": "@logic_imm_32"
+      },
+      {
+        "name": "MOVN",
+        "bit_pattern": ". 00 100101 .. ................ .....",
+        "format": "@movw_64"
+      },
+      {
+        "name": "MOVN",
+        "bit_pattern": ". 00 100101 .. ................ .....",
+        "format": "@movw_32"
+      },
+      {
+        "name": "MOVZ",
+        "bit_pattern": ". 10 100101 .. ................ .....",
+        "format": "@movw_64"
+      },
+      {
+        "name": "MOVZ",
+        "bit_pattern": ". 10 100101 .. ................ .....",
+        "format": "@movw_32"
+      },
+      {
+        "name": "MOVK",
+        "bit_pattern": ". 11 100101 .. ................ .....",
+        "format": "@movw_64"
+      },
+      {
+        "name": "MOVK",
+        "bit_pattern": ". 11 100101 .. ................ .....",
+        "format": "@movw_32"
+      },
+      {
+        "name": "SMAX_i",
+        "bit_pattern": ". 00 1000111 0000 ........ ..... .....",
+        "format": "@minmaxi_s"
+      },
+      {
+        "name": "SMIN_i",
+        "bit_pattern": ". 00 1000111 0010 ........ ..... .....",
+        "format": "@minmaxi_s"
+      },
+      {
+        "name": "UMAX_i",
+        "bit_pattern": ". 00 1000111 0001 ........ ..... .....",
+        "format": "@minmaxi_u"
+      },
+      {
+        "name": "UMIN_i",
+        "bit_pattern": ". 00 1000111 0011 ........ ..... .....",
+        "format": "@minmaxi_u"
+      },
+      {
+        "name": "SBFM",
+        "bit_pattern": ". 00 100110 . ...... ...... ..... .....",
+        "format": "@bitfield_64"
+      },
+      {
+        "name": "SBFM",
+        "bit_pattern": ". 00 100110 . ...... ...... ..... .....",
+        "format": "@bitfield_32"
+      },
+      {
+        "name": "BFM",
+        "bit_pattern": ". 01 100110 . ...... ...... ..... .....",
+        "format": "@bitfield_64"
+      },
+      {
+        "name": "BFM",
+        "bit_pattern": ". 01 100110 . ...... ...... ..... .....",
+        "format": "@bitfield_32"
+      },
+      {
+        "name": "UBFM",
+        "bit_pattern": ". 10 100110 . ...... ...... ..... .....",
+        "format": "@bitfield_64"
+      },
+      {
+        "name": "UBFM",
+        "bit_pattern": ". 10 100110 . ...... ...... ..... .....",
+        "format": "@bitfield_32"
+      },
+      {
+        "name": "EXTR",
+        "bit_pattern": "1 00 100111 1 0",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "EXTR",
+        "bit_pattern": "0 00 100111 0 0",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "B",
+        "bit_pattern": "0 00101 ..........................",
+        "format": "@branch"
+      },
+      {
+        "name": "BL",
+        "bit_pattern": "1 00101 ..........................",
+        "format": "@branch"
+      },
+      {
+        "name": "CBZ",
+        "bit_pattern": "",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "TBZ",
+        "bit_pattern": ". 011011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "B_cond",
+        "bit_pattern": "0101010 0 ...................",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "CB_cond",
+        "bit_pattern": "0 1110100 ... ..... 00 ......... .....",
+        "format": "@cb"
+      },
+      {
+        "name": "CB_cond",
+        "bit_pattern": "1 1110100 ... ..... 00 ......... .....",
+        "format": "@cb"
+      },
+      {
+        "name": "CB_cond",
+        "bit_pattern": "0 1110100 ... ..... 10 ......... .....",
+        "format": "@cb"
+      },
+      {
+        "name": "CB_cond",
+        "bit_pattern": "0 1110100 ... ..... 11 ......... .....",
+        "format": "@cb"
+      },
+      {
+        "name": "CB_cond_imm",
+        "bit_pattern": "",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "BR",
+        "bit_pattern": "1101011 0000 11111 000000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "BLR",
+        "bit_pattern": "1101011 0001 11111 000000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "RET",
+        "bit_pattern": "1101011 0010 11111 000000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "BRAZ",
+        "bit_pattern": "1101011 0000 11111 00001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "BLRAZ",
+        "bit_pattern": "1101011 0001 11111 00001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "RETA",
+        "bit_pattern": "1101011 0010 11111 00001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "BRA",
+        "bit_pattern": "1101011 1000 11111 00001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "BLRA",
+        "bit_pattern": "1101011 1001 11111 00001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "ERET",
+        "bit_pattern": "1101011 0100 11111 000000 11111",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "ERETA",
+        "bit_pattern": "1101011 0100 11111 00001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "YIELD",
+        "bit_pattern": "1101 0101 0000 0011 0010 0000 001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "WFE",
+        "bit_pattern": "1101 0101 0000 0011 0010 0000 010",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "WFI",
+        "bit_pattern": "1101 0101 0000 0011 0010 0000 011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "SEV",
+        "bit_pattern": "1101 0101 0000 0011 0010 0000 100",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "SEVL",
+        "bit_pattern": "1101 0101 0000 0011 0010 0000 101",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "XPACLRI",
+        "bit_pattern": "1101 0101 0000 0011 0010 0000 111",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "PACIA1716",
+        "bit_pattern": "1101 0101 0000 0011 0010 0001 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "PACIB1716",
+        "bit_pattern": "1101 0101 0000 0011 0010 0001 010",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AUTIA1716",
+        "bit_pattern": "1101 0101 0000 0011 0010 0001 100",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AUTIB1716",
+        "bit_pattern": "1101 0101 0000 0011 0010 0001 110",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "ESB",
+        "bit_pattern": "1101 0101 0000 0011 0010 0010 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "GCSB",
+        "bit_pattern": "1101 0101 0000 0011 0010 0010 011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "PACIAZ",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "PACIASP",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "PACIBZ",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 010",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "PACIBSP",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AUTIAZ",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 100",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AUTIASP",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 101",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AUTIBZ",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 110",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AUTIBSP",
+        "bit_pattern": "1101 0101 0000 0011 0010 0011 111",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "CHKFEAT",
+        "bit_pattern": "1101 0101 0000 0011 0010 0101 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "NOP",
+        "bit_pattern": "1101 0101 0000 0011 0010",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "WFET",
+        "bit_pattern": "1101 0101 0000 0011 0001 0000 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "WFIT",
+        "bit_pattern": "1101 0101 0000 0011 0001 0000 001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "CLREX",
+        "bit_pattern": "1101 0101 0000 0011 0011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "DSB_DMB",
+        "bit_pattern": "1101 0101 0000 0011 0011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "DSB_nXS",
+        "bit_pattern": "1101 0101 0000 0011 0011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "ISB",
+        "bit_pattern": "1101 0101 0000 0011 0011",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "SB",
+        "bit_pattern": "1101 0101 0000 0011 0011 0000 111",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "CFINV",
+        "bit_pattern": "1101 0101 0000 0 000 0100 0000 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "XAFLAG",
+        "bit_pattern": "1101 0101 0000 0 000 0100 0000 001",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "AXFLAG",
+        "bit_pattern": "1101 0101 0000 0 000 0100 0000 010",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "MSR_i_UAO",
+        "bit_pattern": "1101 0101 0000 0 000 0100 .... 011 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_PAN",
+        "bit_pattern": "1101 0101 0000 0 000 0100 .... 100 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_SPSEL",
+        "bit_pattern": "1101 0101 0000 0 000 0100 .... 101 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_SBSS",
+        "bit_pattern": "1101 0101 0000 0 011 0100 .... 001 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_DIT",
+        "bit_pattern": "1101 0101 0000 0 011 0100 .... 010 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_TCO",
+        "bit_pattern": "1101 0101 0000 0 011 0100 .... 100 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_DAIFSET",
+        "bit_pattern": "1101 0101 0000 0 011 0100 .... 110 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_DAIFCLEAR",
+        "bit_pattern": "1101 0101 0000 0 011 0100 .... 111 11111",
+        "format": "@msr_i"
+      },
+      {
+        "name": "MSR_i_ALLINT",
+        "bit_pattern": "1101 0101 0000 0 001 0100 000",
+        "format": "DEFAULT"
+      },
+      {
+        "name": "MSR_i_SVCR",
+        "bit_pattern": "1101 0101 0000 0 011 0100 0",
+        "format": "DEFAULT"
+      }
+    ],
+    "luajit_bytecodes": [
+      {
+        "opcode": "BC_ISLT",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "lt"
+      },
+      {
+        "opcode": "BC_ISGE",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "lt"
+      },
+      {
+        "opcode": "BC_ISLE",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "le"
+      },
+      {
+        "opcode": "BC_ISGT",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "le"
+      },
+      {
+        "opcode": "BC_ISEQV",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISNEV",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISEQS",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "str",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISNES",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "str",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISEQN",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "num",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISNEN",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "num",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISEQP",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "pri",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISNEP",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "pri",
+        "mode_md": "eq"
+      },
+      {
+        "opcode": "BC_ISTC",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ISFC",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_IST",
+        "mode_ma": "___",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ISF",
+        "mode_ma": "___",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ISTYPE",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ISNUM",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_MOV",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_NOT",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_UNM",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "unm"
+      },
+      {
+        "opcode": "BC_LEN",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "len"
+      },
+      {
+        "opcode": "BC_ADDVN",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "add"
+      },
+      {
+        "opcode": "BC_SUBVN",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "sub"
+      },
+      {
+        "opcode": "BC_MULVN",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "mul"
+      },
+      {
+        "opcode": "BC_DIVVN",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "div"
+      },
+      {
+        "opcode": "BC_MODVN",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "mod"
+      },
+      {
+        "opcode": "BC_ADDNV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "add"
+      },
+      {
+        "opcode": "BC_SUBNV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "sub"
+      },
+      {
+        "opcode": "BC_MULNV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "mul"
+      },
+      {
+        "opcode": "BC_DIVNV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "div"
+      },
+      {
+        "opcode": "BC_MODNV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "num",
+        "mode_md": "mod"
+      },
+      {
+        "opcode": "BC_ADDVV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "add"
+      },
+      {
+        "opcode": "BC_SUBVV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "sub"
+      },
+      {
+        "opcode": "BC_MULVV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "mul"
+      },
+      {
+        "opcode": "BC_DIVVV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "div"
+      },
+      {
+        "opcode": "BC_MODVV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "mod"
+      },
+      {
+        "opcode": "BC_POW",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "pow"
+      },
+      {
+        "opcode": "BC_CAT",
+        "mode_ma": "dst",
+        "mode_mb": "rbase",
+        "mode_mc": "rbase",
+        "mode_md": "concat"
+      },
+      {
+        "opcode": "BC_KSTR",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "str",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_KCDATA",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "cdata",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_KSHORT",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "lits",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_KNUM",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "num",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_KPRI",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "pri",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_KNIL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "base",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_UGET",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "uv",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_USETV",
+        "mode_ma": "uv",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_USETS",
+        "mode_ma": "uv",
+        "mode_mb": "___",
+        "mode_mc": "str",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_USETN",
+        "mode_ma": "uv",
+        "mode_mb": "___",
+        "mode_mc": "num",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_USETP",
+        "mode_ma": "uv",
+        "mode_mb": "___",
+        "mode_mc": "pri",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_UCLO",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FNEW",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "func",
+        "mode_md": "gc"
+      },
+      {
+        "opcode": "BC_TNEW",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "gc"
+      },
+      {
+        "opcode": "BC_TDUP",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "tab",
+        "mode_md": "gc"
+      },
+      {
+        "opcode": "BC_GGET",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "str",
+        "mode_md": "index"
+      },
+      {
+        "opcode": "BC_GSET",
+        "mode_ma": "var",
+        "mode_mb": "___",
+        "mode_mc": "str",
+        "mode_md": "newindex"
+      },
+      {
+        "opcode": "BC_TGETV",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "index"
+      },
+      {
+        "opcode": "BC_TGETS",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "str",
+        "mode_md": "index"
+      },
+      {
+        "opcode": "BC_TGETB",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "lit",
+        "mode_md": "index"
+      },
+      {
+        "opcode": "BC_TGETR",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "index"
+      },
+      {
+        "opcode": "BC_TSETV",
+        "mode_ma": "var",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "newindex"
+      },
+      {
+        "opcode": "BC_TSETS",
+        "mode_ma": "var",
+        "mode_mb": "var",
+        "mode_mc": "str",
+        "mode_md": "newindex"
+      },
+      {
+        "opcode": "BC_TSETB",
+        "mode_ma": "var",
+        "mode_mb": "var",
+        "mode_mc": "lit",
+        "mode_md": "newindex"
+      },
+      {
+        "opcode": "BC_TSETM",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "num",
+        "mode_md": "newindex"
+      },
+      {
+        "opcode": "BC_TSETR",
+        "mode_ma": "var",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "newindex"
+      },
+      {
+        "opcode": "BC_CALLM",
+        "mode_ma": "base",
+        "mode_mb": "lit",
+        "mode_mc": "lit",
+        "mode_md": "call"
+      },
+      {
+        "opcode": "BC_CALL",
+        "mode_ma": "base",
+        "mode_mb": "lit",
+        "mode_mc": "lit",
+        "mode_md": "call"
+      },
+      {
+        "opcode": "BC_CALLMT",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "call"
+      },
+      {
+        "opcode": "BC_CALLT",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "call"
+      },
+      {
+        "opcode": "BC_ITERC",
+        "mode_ma": "base",
+        "mode_mb": "lit",
+        "mode_mc": "lit",
+        "mode_md": "call"
+      },
+      {
+        "opcode": "BC_ITERN",
+        "mode_ma": "base",
+        "mode_mb": "lit",
+        "mode_mc": "lit",
+        "mode_md": "call"
+      },
+      {
+        "opcode": "BC_VARG",
+        "mode_ma": "base",
+        "mode_mb": "lit",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ISNEXT",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_RETM",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_RET",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_RET0",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_RET1",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FORI",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JFORI",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FORL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_IFORL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JFORL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ITERL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_IITERL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JITERL",
+        "mode_ma": "base",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_LOOP",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_ILOOP",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JLOOP",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JMP",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "jump",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BNOT",
+        "mode_ma": "dst",
+        "mode_mb": "___",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BAND",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BOR",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BXOR",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BSHL",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BSHR",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_BSAR",
+        "mode_ma": "dst",
+        "mode_mb": "var",
+        "mode_mc": "var",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FUNCF",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "___",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_IFUNCF",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "___",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JFUNCF",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FUNCV",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "___",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_IFUNCV",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "___",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_JFUNCV",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "lit",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FUNCC",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "___",
+        "mode_md": "___"
+      },
+      {
+        "opcode": "BC_FUNCCW",
+        "mode_ma": "rbase",
+        "mode_mb": "___",
+        "mode_mc": "___",
+        "mode_md": "___"
+      }
+    ],
+    "ebpf_header_opcodes": [
+      {
+        "symbol": "EBPF_OP_ADD_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ADD_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_SUB_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_SUB_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MUL_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MUL_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_DIV_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_DIV_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_OR_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_OR_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_AND_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_AND_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LSH_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LSH_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_RSH_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_RSH_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_NEG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOD_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOD_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_XOR_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_XOR_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOV_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOV_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ARSH_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ARSH_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LE",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_BE",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ADD64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ADD64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_SUB64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_SUB64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MUL64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MUL64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_DIV64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_DIV64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_OR64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_OR64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_AND64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_AND64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LSH64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LSH64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_RSH64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_RSH64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_NEG64",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOD64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOD64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_XOR64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_XOR64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOV64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_MOV64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ARSH64_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ARSH64_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_BSWAP",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXH",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXB",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXDW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXWSX",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXHSX",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDXBSX",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STH",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STB",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STDW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STXW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STXH",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STXB",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_STXDW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_LDDW",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JA",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JEQ_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JEQ_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGT_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGT_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGE_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGE_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSET_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSET_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JNE_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JNE_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGT_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGT_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGE_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGE_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_CALL",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_EXIT",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLT_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLT_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLE_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLE_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLT_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLT_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLE_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLE_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JA32",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JEQ32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JEQ32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGT32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGT32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGE32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JGE32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSET32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSET32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JNE32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JNE32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGT32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGT32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGE32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSGE32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLT32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLT32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLE32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JLE32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLT32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLT32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLE32_IMM",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_JSLE32_REG",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ATOMIC32_STORE",
+        "value": "(EB"
+      },
+      {
+        "symbol": "EBPF_OP_ATOMIC_STORE",
+        "value": "(EB"
+      }
+    ]
   }
 }
