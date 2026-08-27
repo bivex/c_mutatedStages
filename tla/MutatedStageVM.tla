@@ -235,6 +235,10 @@ StepMutatePipeline ==
 -----------------------------------------------------------------------------
 (* State Machine Next Transition *)
 
+Terminated ==
+    /\ vmHalted
+    /\ UNCHANGED vars
+
 Next ==
     /\ stepCount < MaxSteps
     /\ \/ StepFetch
@@ -245,6 +249,7 @@ Next ==
        \/ StepCommit
        \/ StepJunk
        \/ StepMutatePipeline
+       \/ Terminated
 
 -----------------------------------------------------------------------------
 (* Formal Invariants & Verification Properties *)
