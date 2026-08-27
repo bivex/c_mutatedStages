@@ -1,0 +1,61 @@
+{
+  "arch_id": "VM_Gen_1_b4f9fc28a00a",
+  "paradigm": {
+    "id": "ACCUMULATOR",
+    "description": "Single primary accumulator register (e.g., 6502 / PDP-8). 1-address instructions.",
+    "state_components": [
+      "acc",
+      "registers"
+    ],
+    "operand_sources": [
+      "acc",
+      "memory_or_immediate"
+    ],
+    "result_destination": "acc"
+  },
+  "dispatch": {
+    "id": "DISPATCH_DIRECT_THREADED",
+    "type": "Computed goto via label address array (GCC/Clang &&label syntax)",
+    "overhead": "Lowest (hardware branch target buffer friendly)",
+    "mutation_compatibility": [
+      "table_permutation",
+      "dynamic_code_patching"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_NIBBLE_AFFINE",
+    "byte_size": 2,
+    "layout": {
+      "high_nibble": "obfuscated_opcode = (real_op * A + B) % 16",
+      "low_nibble": "packed_register_indices"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_JUNK_NOOP",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "SUB": 0,
+    "SHL": 1,
+    "HALT": 2,
+    "STORE": 3,
+    "LOAD": 4,
+    "ADD": 5,
+    "JZ": 6,
+    "JMP": 7,
+    "XOR": 8,
+    "SHR": 9,
+    "AND": 10
+  },
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

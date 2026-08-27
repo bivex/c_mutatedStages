@@ -1,0 +1,252 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StageDatabaseAndArchitectureCatalog",
+  "description": "Comprehensive catalog of VM execution paradigms, pipeline stages, dispatch mechanisms, instruction formats, and mutation rules for generating unique multi-stage VM architectures.",
+  "version": "1.0.0",
+  "execution_paradigms": {
+    "stack_based": {
+      "id": "STACK",
+      "description": "Pure stack machine (Forth / JVM / WASM style). Zero-address instructions.",
+      "state_components": ["stack", "sp"],
+      "operand_sources": ["stack_top", "stack_subtop"],
+      "result_destination": "stack_top"
+    },
+    "register_based": {
+      "id": "REGISTER",
+      "description": "Register file machine (Lua 5 / Dalvik / RISC-V style). 2 or 3-address instructions.",
+      "state_components": ["registers"],
+      "operand_sources": ["reg_source1", "reg_source2", "immediate"],
+      "result_destination": "reg_dest"
+    },
+    "accumulator_based": {
+      "id": "ACCUMULATOR",
+      "description": "Single primary accumulator register (e.g., 6502 / PDP-8). 1-address instructions.",
+      "state_components": ["acc", "registers"],
+      "operand_sources": ["acc", "memory_or_immediate"],
+      "result_destination": "acc"
+    },
+    "hybrid_stack_register": {
+      "id": "HYBRID_STACK_REG",
+      "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+      "state_components": ["stack", "scratch_regs", "sp"],
+      "operand_sources": ["scratch_regs", "stack_top"],
+      "result_destination": "scratch_regs_or_stack"
+    }
+  },
+  "dispatch_mechanisms": {
+    "switch_loop": {
+      "id": "DISPATCH_SWITCH",
+      "type": "Standard iterative switch-case loop",
+      "overhead": "Medium (branch mispredictions in simple loops)",
+      "mutation_compatibility": ["opcode_shuffling", "handler_splitting"]
+    },
+    "direct_threaded": {
+      "id": "DISPATCH_DIRECT_THREADED",
+      "type": "Computed goto via label address array (GCC/Clang &&label syntax)",
+      "overhead": "Lowest (hardware branch target buffer friendly)",
+      "mutation_compatibility": ["table_permutation", "dynamic_code_patching"]
+    },
+    "call_threaded": {
+      "id": "DISPATCH_CALL_THREADED",
+      "type": "Array of function pointers called per instruction step",
+      "overhead": "Low-to-Medium (call/ret stack overhead)",
+      "mutation_compatibility": ["runtime_hook_injection", "stage_interposition"]
+    },
+    "state_machine_pipeline": {
+      "id": "DISPATCH_STAGED_COROUTINE",
+      "type": "Discrete micro-tick state machine with explicitly yielded stages",
+      "overhead": "Higher (optimal for asynchronous, polyhedral, and formal modeling)",
+      "mutation_compatibility": ["dynamic_stage_reordering", "junk_stage_injection", "split_execution"]
+    }
+  },
+  "instruction_formats": {
+    "fixed_32bit": {
+      "id": "FMT_FIXED_32",
+      "byte_size": 4,
+      "layout": {
+        "opcode_bits": 8,
+        "flags_bits": 4,
+        "src1_bits": 6,
+        "src2_bits": 6,
+        "dst_bits": 8
+      }
+    },
+    "variable_byte_stream": {
+      "id": "FMT_VAR_BYTE",
+      "byte_size": "1_to_9_bytes",
+      "layout": {
+        "opcode": "1 byte",
+        "modrm_or_tag": "1 byte optional",
+        "immediate": "0-8 bytes LEB128/variable"
+      }
+    },
+    "nibble_packed_affine": {
+      "id": "FMT_NIBBLE_AFFINE",
+      "byte_size": 2,
+      "layout": {
+        "high_nibble": "obfuscated_opcode = (real_op * A + B) % 16",
+        "low_nibble": "packed_register_indices"
+      }
+    },
+    "vliw_stage_bundle": {
+      "id": "FMT_VLIW_BUNDLE",
+      "byte_size": 8,
+      "layout": {
+        "stage_mask": "8 bits indicating active micro-stages",
+        "alu_slot": "24 bits",
+        "memory_slot": "24 bits",
+        "mutation_slot": "8 bits"
+      }
+    }
+  },
+  "pipeline_stages_catalog": [
+    {
+      "stage_id": "STAGE_FETCH",
+      "category": "FRONTEND",
+      "name": "Instruction Fetch",
+      "inputs": ["pc", "code_memory"],
+      "outputs": ["raw_instruction_bytes", "next_pc"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "DIRECT_FETCH",
+        "DECRYPTING_FETCH_XOR",
+        "ROLLING_KEY_FETCH",
+        "PREFETCH_BUFFER"
+      ],
+      "causality_dependencies": []
+    },
+    {
+      "stage_id": "STAGE_DYNAMIC_DECRYPT",
+      "category": "SECURITY_OBFUSCATION",
+      "name": "Dynamic Opcode Decryption / Transform",
+      "inputs": ["raw_instruction_bytes", "vm_epoch_key"],
+      "outputs": ["decrypted_instruction_bytes"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "AFFINE_CIPHER",
+        "LOOKUP_TABLE_PERMUTE",
+        "STATE_DEPENDENT_XOR"
+      ],
+      "causality_dependencies": ["STAGE_FETCH"]
+    },
+    {
+      "stage_id": "STAGE_DECODE",
+      "category": "FRONTEND",
+      "name": "Instruction Decode & Field Splitting",
+      "inputs": ["decrypted_instruction_bytes"],
+      "outputs": ["decoded_opcode", "operand_specs", "instruction_flags"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "DIRECT_BITFIELD_DECODE",
+        "HUFFMAN_TREE_DECODE",
+        "POLYMORPHIC_LUT_DECODE"
+      ],
+      "causality_dependencies": ["STAGE_DYNAMIC_DECRYPT"]
+    },
+    {
+      "stage_id": "STAGE_STAGE_MUTATOR",
+      "category": "METAMORPHIC_ENGINE",
+      "name": "Pipeline Stage Reordering & Morphing Engine",
+      "inputs": ["current_pipeline_descriptor", "entropy_state"],
+      "outputs": ["new_pipeline_descriptor", "updated_entropy"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "PIPELINE_PERMUTE",
+        "JUNK_STAGE_INSERTER",
+        "STAGE_FUSION",
+        "STAGE_FISSION"
+      ],
+      "causality_dependencies": ["STAGE_DECODE"]
+    },
+    {
+      "stage_id": "STAGE_OPERAND_FETCH",
+      "category": "OPERAND_MANAGEMENT",
+      "name": "Operand Resolution & Dereference",
+      "inputs": ["operand_specs", "registers", "stack", "data_memory"],
+      "outputs": ["operand_a_val", "operand_b_val", "dest_ref"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "STACK_TOP_POP",
+        "REGISTER_FILE_READ",
+        "INDIRECT_MEMORY_READ",
+        "SHADOW_REGISTER_MIRROR"
+      ],
+      "causality_dependencies": ["STAGE_DECODE"]
+    },
+    {
+      "stage_id": "STAGE_JUNK_NOOP",
+      "category": "OBFUSCATION_DECOY",
+      "name": "Decoy / Polymorphic Junk Execution",
+      "inputs": ["entropy_register"],
+      "outputs": ["entropy_register_updated"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "DEAD_ALU_OPERATION",
+        "IDLE_TIMING_PADDING",
+        "DECOY_MEMORY_TOUCH"
+      ],
+      "causality_dependencies": []
+    },
+    {
+      "stage_id": "STAGE_EXECUTE",
+      "category": "ALU_CORE",
+      "name": "Core ALU & Branch Execution",
+      "inputs": ["decoded_opcode", "operand_a_val", "operand_b_val"],
+      "outputs": ["computation_result", "branch_taken", "target_pc", "flag_updates"],
+      "can_be_mutated": true,
+      "mutation_variants": [
+        "STANDARD_ALU",
+        "BIT_SLICED_ALU",
+        "RESIDUE_NUMBER_ALU",
+        "MBA_EXPRESSION_EVALUATOR"
+      ],
+      "causality_dependencies": ["STAGE_OPERAND_FETCH"]
+    },
+    {
+      "stage_id": "STAGE_COMMIT_WRITEBACK",
+      "category": "BACKEND",
+      "name": "State Commit & Architectural Writeback",
+      "inputs": ["dest_ref", "computation_result", "branch_taken", "target_pc"],
+      "outputs": ["registers_updated", "stack_updated", "pc_updated", "memory_updated"],
+      "can_be_mutated": false,
+      "mutation_variants": [
+        "DIRECT_REG_WRITEBACK",
+        "STACK_PUSH_COMMIT",
+        "TRANSACTIONAL_SHADOW_COMMIT"
+      ],
+      "causality_dependencies": ["STAGE_EXECUTE"]
+    }
+  ],
+  "mutation_algebra": {
+    "causality_matrix": {
+      "STAGE_FETCH": 1,
+      "STAGE_DYNAMIC_DECRYPT": 2,
+      "STAGE_DECODE": 3,
+      "STAGE_OPERAND_FETCH": 4,
+      "STAGE_EXECUTE": 5,
+      "STAGE_COMMIT_WRITEBACK": 6
+    },
+    "floating_stages": [
+      "STAGE_STAGE_MUTATOR",
+      "STAGE_JUNK_NOOP"
+    ],
+    "invariants": [
+      {
+        "name": "CausalOrderPreserved",
+        "rule": "For any two dependent stages S_A and S_B where S_B depends on S_A, index(S_A) < index(S_B) in active pipeline sequence."
+      },
+      {
+        "name": "SingleStateCommit",
+        "rule": "STAGE_COMMIT_WRITEBACK must be strictly the last stage or followed only by dynamic pipeline mutation."
+      },
+      {
+        "name": "DataHazardFreedom",
+        "rule": "STAGE_OPERAND_FETCH must complete before STAGE_EXECUTE consumes operands."
+      },
+      {
+        "name": "DecryptionBeforeDecode",
+        "rule": "STAGE_DYNAMIC_DECRYPT must immediately precede STAGE_DECODE unless ciphertext format is disabled."
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "arch_id": "VM_Gen_3_f65becb560d9",
+  "paradigm": {
+    "id": "STACK",
+    "description": "Pure stack machine (Forth / JVM / WASM style). Zero-address instructions.",
+    "state_components": [
+      "stack",
+      "sp"
+    ],
+    "operand_sources": [
+      "stack_top",
+      "stack_subtop"
+    ],
+    "result_destination": "stack_top"
+  },
+  "dispatch": {
+    "id": "DISPATCH_DIRECT_THREADED",
+    "type": "Computed goto via label address array (GCC/Clang &&label syntax)",
+    "overhead": "Lowest (hardware branch target buffer friendly)",
+    "mutation_compatibility": [
+      "table_permutation",
+      "dynamic_code_patching"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_FIXED_32",
+    "byte_size": 4,
+    "layout": {
+      "opcode_bits": 8,
+      "flags_bits": 4,
+      "src1_bits": 6,
+      "src2_bits": 6,
+      "dst_bits": 8
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_JUNK_NOOP",
+    "STAGE_JUNK_NOOP",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "LOAD": 0,
+    "JMP": 1,
+    "XOR": 2,
+    "HALT": 3,
+    "ADD": 4,
+    "SHR": 5,
+    "SHL": 6,
+    "SUB": 7,
+    "STORE": 8,
+    "AND": 9,
+    "JZ": 10
+  },
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}
