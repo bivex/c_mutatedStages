@@ -1,81 +1,26 @@
-# Multi-Stage Mutated Virtual Machine Architecture Framework
+# c_mutatedStages
 
-Формальная спецификация, база данных стадий и генератор уникальных архитектур виртуальных машин с многостадийным конвейером и динамическими мутациями.
+> 🧪 Formal TLA+ specification, stage catalog, and architecture generator for polymorphic multi-stage Virtual Machines.
 
----
+## ⚡ Quickstart
 
-## 📁 Структура проекта
-
-```text
-c_mutatedStages/
-├── spec/
-│   └── stages_db.json              # База данных архитектурных примитивов, стадий и форматов
-├── tla/
-│   ├── MutatedStageVM.tla          # Формальная TLA+ спецификация ВМ и инвариантов
-│   └── MutatedStageVM.cfg          # Конфигурация для верификатора TLC
-├── scripts/
-│   └── generate_arch.py            # Генератор уникальных формально верифицированных ВМ
-├── generated_architectures/        # Сгенерированные уникальные профили архитектур (JSON)
-└── README.md
-```
-
----
-
-## 🧩 1. База данных стадий и форматов (`spec/stages_db.json`)
-
-База данных содержит модульные строительные блоки для синтеза ВМ:
-
-1. **Парадигмы исполнения (`execution_paradigms`)**:
-   - `STACK`: Стековая машина (0-адресные инструкции, Forth/JVM/WASM).
-   - `REGISTER`: Регистровая машина (2/3-адресные инструкции, Lua/RISC-V).
-   - `ACCUMULATOR`: Аккумуляторная машина (1-адресные инструкции).
-   - `HYBRID_STACK_REG`: Гибридная модель.
-
-2. **Каталог стадий конвейера (`pipeline_stages_catalog`)**:
-   - `STAGE_FETCH`: Выборка опкода (прямая, с расшифровкой, prefetch).
-   - `STAGE_DYNAMIC_DECRYPT`: Динамическое снятие обфускации/аффинный шифр опкодов.
-   - `STAGE_DECODE`: Декодирование полей и опкода (битовые маски, деревья Хаффмана, полиморфные LUT).
-   - `STAGE_OPERAND_FETCH`: Разрешение операндов (стек, регистровый файл, indirect memory).
-   - `STAGE_EXECUTE`: Ядро АЛУ (стандартное, bit-sliced, MBA-выражения).
-   - `STAGE_COMMIT_WRITEBACK`: Фиксация состояния (запись в регистры/память/стек, обновление PC).
-   - `STAGE_JUNK_NOOP`: Ложные/декой стадии для полиморфизма и защиты.
-   - `STAGE_STAGE_MUTATOR`: Метаморфический движок перестройки конвейера на лету.
-
-3. **Алгебра мутаций и причинности (`mutation_algebra`)**:
-   - Матрица рангов причинности (Causality Matrix): гарантирует, что операнды не считываются до декодирования, а фиксация состояния не происходит до исполнения АЛУ.
-
----
-
-## 🔬 2. Формальная спецификация TLA+ (`tla/MutatedStageVM.tla`)
-
-Спецификация моделирует:
-- Состояния регистров, стека, памяти команд и межуровневых буферов (Inter-stage latches).
-- Динамическую перестройку конвейера во время исполнения.
-- **Инварианты безопасности и корректности**:
-  - `TypeOK`: Типобезопасность состояний.
-  - `NoExecutionBeforeDecode`: Исключение гонок операндов (Data Hazard Freedom).
-  - `NoCommitBeforeExecution`: Целостность фиксации состояния.
-  - `DecodeAfterDecrypt`: Гарантия корректной расшифровки до декодирования.
-  - `Liveness`: Доказательство отсутствия дедлоков в конвейере.
-
-### Запуск верификатора TLC (Model Checker):
+### 1. Verify Formal Model (TLA+)
+Check formal invariants and deadlock-freedom with TLC:
 ```bash
-# При наличии установленного Java TLA+ tools (tla2tools.jar):
-java -cp tla2tools.jar tlc2.TLC tla/MutatedStageVM.tla
+java -cp tla/tla2tools.jar tlc2.TLC tla/MutatedStageVM.tla -config tla/MutatedStageVM.cfg
+```
+
+### 2. Generate Unique VM Architectures
+Synthesize verified VM configurations from the stages database:
+```bash
+python3 scripts/generate_arch.py 3
 ```
 
 ---
 
-## ⚡ 3. Генератор уникальных архитектур (`scripts/generate_arch.py`)
+## 📂 Project Structure
 
-Скрипт читает базу `stages_db.json`, комбинаторно генерирует уникальную конфигурацию ВМ, проверяет алгебру причинности и сохраняет готовый профиль:
-
-```bash
-python3 scripts/generate_arch.py 5
-```
-
-Каждый сгенерированный JSON в `generated_architectures/` содержит:
-- Парадигму и механизм диспетчеризации (computed goto, switch-case, coroutine pipeline).
-- Формат команд и перемешанный опкод-маппинг.
-- Валидированную цепочку стадий конвейера.
-- Хэш-идентификатор уникальной архитектуры.
+- **`spec/stages_db.json`** — Catalog of execution paradigms (Stack, Register, Acc), dispatch mechanisms (Computed goto, Switch, Coroutine), opcode formats, and pipeline stages.
+- **`tla/MutatedStageVM.tla`** — Formal TLA+ model verifying data hazard freedom, stage causality, and state commit integrity.
+- **`scripts/generate_arch.py`** — Generator synthesizing verified unique VM architecture profiles.
+- **`generated_architectures/`** — Generated JSON profiles ready for C VM code emission.
