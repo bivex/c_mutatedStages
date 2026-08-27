@@ -1,0 +1,83 @@
+{
+  "arch_id": "Wasm_Staged_VM_52578dd820f1",
+  "paradigm": {
+    "id": "REGISTER",
+    "description": "Register file machine (Lua 5 / Dalvik / RISC-V style). 2 or 3-address instructions.",
+    "state_components": [
+      "registers"
+    ],
+    "operand_sources": [
+      "reg_source1",
+      "reg_source2",
+      "immediate"
+    ],
+    "result_destination": "reg_dest"
+  },
+  "dispatch": {
+    "id": "DISPATCH_SWITCH",
+    "type": "Standard iterative switch-case loop",
+    "overhead": "Medium (branch mispredictions in simple loops)",
+    "mutation_compatibility": [
+      "opcode_shuffling",
+      "handler_splitting"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_VLIW_BUNDLE",
+    "byte_size": 8,
+    "layout": {
+      "stage_mask": "8 bits indicating active micro-stages",
+      "alu_slot": "24 bits",
+      "memory_slot": "24 bits",
+      "mutation_slot": "8 bits"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_JUNK_NOOP",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "BPF_NEG": 0,
+    "BPF_OR": 1,
+    "BPF_XOR": 2,
+    "HALT": 3,
+    "BPF_SUB": 4,
+    "BPF_DIV": 5,
+    "BPF_ARSH": 6,
+    "BPF_MOV": 7,
+    "BPF_LSH": 8,
+    "BPF_END": 9,
+    "BPF_AND": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    },
+    {
+      "name": "Unit_Branch",
+      "type": "BRANCH_UNIT",
+      "throughput": 1,
+      "latency": 1
+    },
+    {
+      "name": "Unit_CryptoAesSha",
+      "type": "CRYPTO_ACCEL",
+      "throughput": 4,
+      "latency": 4
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "arch_id": "eBPF_Poly_VM_1d16dbcf23f9",
+  "paradigm": {
+    "id": "HYBRID_STACK_REG",
+    "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+    "state_components": [
+      "stack",
+      "scratch_regs",
+      "sp"
+    ],
+    "operand_sources": [
+      "scratch_regs",
+      "stack_top"
+    ],
+    "result_destination": "scratch_regs_or_stack"
+  },
+  "dispatch": {
+    "id": "DISPATCH_DIRECT_THREADED",
+    "type": "Computed goto via label address array (GCC/Clang &&label syntax)",
+    "overhead": "Lowest (hardware branch target buffer friendly)",
+    "mutation_compatibility": [
+      "table_permutation",
+      "dynamic_code_patching"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_VAR_BYTE",
+    "byte_size": "1_to_9_bytes",
+    "layout": {
+      "opcode": "1 byte",
+      "modrm_or_tag": "1 byte optional",
+      "immediate": "0-8 bytes LEB128/variable"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_JUNK_NOOP",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "HALT": 0,
+    "INT_SBORROW": 1,
+    "INT_SLESS": 2,
+    "INT_REM": 3,
+    "INT_SEXT": 4,
+    "STORE": 5,
+    "INT_EQUAL": 6,
+    "CALL": 7,
+    "INT_SUB": 8,
+    "INT_CARRY": 9,
+    "RETURN": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    },
+    {
+      "name": "Unit_MemoryLoad",
+      "type": "LOAD_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_IntSimple",
+      "type": "ALU_SIMPLE",
+      "throughput": 1,
+      "latency": 1
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

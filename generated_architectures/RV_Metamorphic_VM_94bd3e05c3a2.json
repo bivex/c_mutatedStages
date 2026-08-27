@@ -1,0 +1,83 @@
+{
+  "arch_id": "RV_Metamorphic_VM_94bd3e05c3a2",
+  "paradigm": {
+    "id": "REGISTER",
+    "description": "Register file machine (Lua 5 / Dalvik / RISC-V style). 2 or 3-address instructions.",
+    "state_components": [
+      "registers"
+    ],
+    "operand_sources": [
+      "reg_source1",
+      "reg_source2",
+      "immediate"
+    ],
+    "result_destination": "reg_dest"
+  },
+  "dispatch": {
+    "id": "DISPATCH_STAGED_COROUTINE",
+    "type": "Discrete micro-tick state machine with explicitly yielded stages",
+    "overhead": "Higher (optimal for asynchronous, polyhedral, and formal modeling)",
+    "mutation_compatibility": [
+      "dynamic_stage_reordering",
+      "junk_stage_injection",
+      "split_execution"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_VLIW_BUNDLE",
+    "byte_size": 8,
+    "layout": {
+      "stage_mask": "8 bits indicating active micro-stages",
+      "alu_slot": "24 bits",
+      "memory_slot": "24 bits",
+      "mutation_slot": "8 bits"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "BPF_XOR": 0,
+    "BPF_LSH": 1,
+    "BPF_OR": 2,
+    "BPF_NEG": 3,
+    "BPF_DIV": 4,
+    "BPF_AND": 5,
+    "BPF_END": 6,
+    "BPF_SUB": 7,
+    "HALT": 8,
+    "BPF_ARSH": 9,
+    "BPF_MOD": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_IntComplex",
+      "type": "ALU_COMPLEX",
+      "throughput": 2,
+      "latency": 3
+    },
+    {
+      "name": "Unit_CryptoAesSha",
+      "type": "CRYPTO_ACCEL",
+      "throughput": 4,
+      "latency": 4
+    },
+    {
+      "name": "Unit_PolymorphicDecoy",
+      "type": "DECOY_JUNK_UNIT",
+      "throughput": 1,
+      "latency": 1
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

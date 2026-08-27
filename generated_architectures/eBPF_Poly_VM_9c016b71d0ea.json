@@ -1,0 +1,82 @@
+{
+  "arch_id": "eBPF_Poly_VM_9c016b71d0ea",
+  "paradigm": {
+    "id": "REGISTER",
+    "description": "Register file machine (Lua 5 / Dalvik / RISC-V style). 2 or 3-address instructions.",
+    "state_components": [
+      "registers"
+    ],
+    "operand_sources": [
+      "reg_source1",
+      "reg_source2",
+      "immediate"
+    ],
+    "result_destination": "reg_dest"
+  },
+  "dispatch": {
+    "id": "DISPATCH_CALL_THREADED",
+    "type": "Array of function pointers called per instruction step",
+    "overhead": "Low-to-Medium (call/ret stack overhead)",
+    "mutation_compatibility": [
+      "runtime_hook_injection",
+      "stage_interposition"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_VLIW_BUNDLE",
+    "byte_size": 8,
+    "layout": {
+      "stage_mask": "8 bits indicating active micro-stages",
+      "alu_slot": "24 bits",
+      "memory_slot": "24 bits",
+      "mutation_slot": "8 bits"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_JUNK_NOOP",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "BPF_XOR": 0,
+    "BPF_DIV": 1,
+    "BPF_AND": 2,
+    "BPF_MOD": 3,
+    "BPF_NEG": 4,
+    "BPF_MUL": 5,
+    "BPF_ARSH": 6,
+    "HALT": 7,
+    "BPF_RSH": 8,
+    "BPF_OR": 9,
+    "BPF_SUB": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_MemoryStore",
+      "type": "STORE_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_IntComplex",
+      "type": "ALU_COMPLEX",
+      "throughput": 2,
+      "latency": 3
+    },
+    {
+      "name": "Unit_CryptoAesSha",
+      "type": "CRYPTO_ACCEL",
+      "throughput": 4,
+      "latency": 4
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}

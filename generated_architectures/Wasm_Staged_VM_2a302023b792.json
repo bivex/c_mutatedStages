@@ -1,0 +1,82 @@
+{
+  "arch_id": "Wasm_Staged_VM_2a302023b792",
+  "paradigm": {
+    "id": "HYBRID_STACK_REG",
+    "description": "Hybrid architecture with scratch register file backed by evaluation stack.",
+    "state_components": [
+      "stack",
+      "scratch_regs",
+      "sp"
+    ],
+    "operand_sources": [
+      "scratch_regs",
+      "stack_top"
+    ],
+    "result_destination": "scratch_regs_or_stack"
+  },
+  "dispatch": {
+    "id": "DISPATCH_SWITCH",
+    "type": "Standard iterative switch-case loop",
+    "overhead": "Medium (branch mispredictions in simple loops)",
+    "mutation_compatibility": [
+      "opcode_shuffling",
+      "handler_splitting"
+    ]
+  },
+  "instruction_format": {
+    "id": "FMT_NIBBLE_AFFINE",
+    "byte_size": 2,
+    "layout": {
+      "high_nibble": "obfuscated_opcode = (real_op * A + B) % 16",
+      "low_nibble": "packed_register_indices"
+    }
+  },
+  "pipeline_stages": [
+    "STAGE_FETCH",
+    "STAGE_JUNK_NOOP",
+    "STAGE_DYNAMIC_DECRYPT",
+    "STAGE_STAGE_MUTATOR",
+    "STAGE_DECODE",
+    "STAGE_OPERAND_FETCH",
+    "STAGE_EXECUTE",
+    "STAGE_COMMIT_WRITEBACK"
+  ],
+  "opcode_mapping": {
+    "INT_2COMP": 0,
+    "BRANCH": 1,
+    "HALT": 2,
+    "INT_SEXT": 3,
+    "INT_ZEXT": 4,
+    "RETURN": 5,
+    "INT_REM": 6,
+    "INT_ADD": 7,
+    "INT_SCARRY": 8,
+    "INT_LEFT": 9,
+    "LOAD": 10
+  },
+  "micro_sched_units": [
+    {
+      "name": "Unit_IntComplex",
+      "type": "ALU_COMPLEX",
+      "throughput": 2,
+      "latency": 3
+    },
+    {
+      "name": "Unit_MemoryLoad",
+      "type": "LOAD_PORT",
+      "throughput": 1,
+      "latency": 2
+    },
+    {
+      "name": "Unit_IntSimple",
+      "type": "ALU_SIMPLE",
+      "throughput": 1,
+      "latency": 1
+    }
+  ],
+  "formal_verification_status": {
+    "invariants_passed": true,
+    "verification_message": "All Formal Invariants Verified OK",
+    "tla_model_compatible": true
+  }
+}
