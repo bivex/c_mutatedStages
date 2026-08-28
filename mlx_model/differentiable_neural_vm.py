@@ -200,9 +200,9 @@ class DifferentiableRAM(nn.Module):
 
         # -- §3.2 dynamic allocation ----------------------------------------
         # retention (single read head): psi = 1 - f * w^r_prev
-        psi = mx.clip(1.0 - free_gate * wr_prev, 0.0, 1.0)                       # (B, N)
+        psi = 1.0 - free_gate * wr_prev                                          # (B, N)
         # usage: u = (u + w^w_prev - u . w^w_prev) * psi
-        usage = mx.clip((usage_prev + ww_prev - usage_prev * ww_prev) * psi, 0.0, 1.0)
+        usage = (usage_prev + ww_prev - usage_prev * ww_prev) * psi              # (B, N)
         # free list phi = ascending sort of usage (hard; grads flow through values)
         perm = mx.argsort(usage, axis=-1)                                        # (B, N)
         u_sorted = mx.take_along_axis(usage, perm, axis=-1)
@@ -226,11 +226,12 @@ class DifferentiableRAM(nn.Module):
         add_matrix = ww[:, :, None] * value[:, None, :]
         M_new = M * erase_matrix + add_matrix
 
-        # -- §3.3 temporal linkage (uses p_{t-1} per Graves) -----------------
+        # -- §3.3 temporal linkage (uses p_{t-1} per Graves; zero diagonal) --
         link = (1.0 - ww[:, :, None] - ww[:, None, :]) * link_prev \
             + ww[:, :, None] * prio_prev[:, None, :]                             # (B, N, N)
-        link = mx.clip(link, 0.0, 1.0)
-        prio = mx.clip((1.0 - ww.sum(axis=-1, keepdims=True)) * prio_prev + ww, 0.0, 1.0)
+        eye = mx.eye(N)[None, :, :]
+        link = link * (1.0 - eye)
+        prio = (1.0 - ww.sum(axis=-1, keepdims=True)) * prio_prev + ww
 
         # -- read modes: content + backward + forward ------------------------
         b = (link @ wr_prev[:, :, None]).squeeze(-1)                             # L  . w^r_prev
@@ -499,7 +500,7 @@ def make_initial_state(batch_size: int, num_regs: int, num_ram: int, stack_depth
         'ram_link': mx.zeros((batch_size, num_ram, num_ram)),
         'ram_prio': mx.zeros((batch_size, num_ram)),
         'ram_ww_prev': mx.zeros((batch_size, num_ram)),
-        'ram_wr_prev': mx.zeros((batch_size, num_ram)),
+        'ram_wr_prev': mx.full((batch_size, num_ram), 1.0 / num_ram),
         'stack_mem': mx.zeros((batch_size, stack_depth, d_val)),
         'stack_depth': mx.zeros((batch_size, stack_depth)),
         'ip_dist': mx.softmax(ip0, axis=-1),
@@ -521,7 +522,7 @@ def scaffold_program(d_val: int, num_regs: int, program_len: int, key) -> mx.arr
 
 
 def induce_program(vm: NeuralDifferentiableVM, init_state: dict, program_p: mx.array,
-                   target: float, steps: int = 3, iters: int = 1200, lr: float = 0.05,
+                   target: float, steps: int = 3, iters: int = 1400, lr: float = 0.05,
                    clip_norm: float = 5.0, tau_start: float = 1.0, tau_end: float = 0.1,
                    gumbel_until: float = 0.35, verbose: bool = False):
     """
