@@ -163,7 +163,11 @@ def main():
     base_db["dataset_metadata"] = {
         "source": "Aggregated NSA Ghidra, W3C WASM, Linux eBPF, RISC-V Foundation, and LLVM TableGen",
         "total_primitives": 150,
-        "is_formal_verified": True
+        # Honest scope note: this database is a *catalog of opcode/primitive
+        # definitions* parsed from upstream sources. Nothing in it is machine
+        # checked; formal verification lives in the TLA+ modules.
+        "is_formal_verified": False,
+        "verification_scope": "opcode tables only; TLA+ modules provide the formal proofs"
     }
     base_db["ghidra_pcode"] = build_ghidra_pcode_catalog()
     base_db["wasm_core"] = build_wasm_catalog()

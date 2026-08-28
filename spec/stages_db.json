@@ -357,7 +357,8 @@
   "dataset_metadata": {
     "source": "Aggregated NSA Ghidra, W3C WASM, Linux eBPF, RISC-V Foundation, and LLVM TableGen",
     "total_primitives": 150,
-    "is_formal_verified": true
+    "is_formal_verified": false,
+    "verification_scope": "opcode tables only; TLA+ modules provide the formal proofs"
   },
   "ghidra_pcode": {
     "description": "Ghidra Universal Micro-Operations (P-Code) representing atomic ISA-independent stages",
@@ -6235,479 +6236,479 @@
     "ebpf_header_opcodes": [
       {
         "symbol": "EBPF_OP_ADD_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_ADD)"
       },
       {
         "symbol": "EBPF_OP_ADD_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_ADD)"
       },
       {
         "symbol": "EBPF_OP_SUB_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_SUB)"
       },
       {
         "symbol": "EBPF_OP_SUB_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_SUB)"
       },
       {
         "symbol": "EBPF_OP_MUL_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_MUL)"
       },
       {
         "symbol": "EBPF_OP_MUL_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_MUL)"
       },
       {
         "symbol": "EBPF_OP_DIV_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_DIV)"
       },
       {
         "symbol": "EBPF_OP_DIV_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_DIV)"
       },
       {
         "symbol": "EBPF_OP_OR_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_OR)"
       },
       {
         "symbol": "EBPF_OP_OR_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_OR)"
       },
       {
         "symbol": "EBPF_OP_AND_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_AND)"
       },
       {
         "symbol": "EBPF_OP_AND_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_AND)"
       },
       {
         "symbol": "EBPF_OP_LSH_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_LSH)"
       },
       {
         "symbol": "EBPF_OP_LSH_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_LSH)"
       },
       {
         "symbol": "EBPF_OP_RSH_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_RSH)"
       },
       {
         "symbol": "EBPF_OP_RSH_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_RSH)"
       },
       {
         "symbol": "EBPF_OP_NEG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_ALU_OP_NEG)"
       },
       {
         "symbol": "EBPF_OP_MOD_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_MOD)"
       },
       {
         "symbol": "EBPF_OP_MOD_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_MOD)"
       },
       {
         "symbol": "EBPF_OP_XOR_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_XOR)"
       },
       {
         "symbol": "EBPF_OP_XOR_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_XOR)"
       },
       {
         "symbol": "EBPF_OP_MOV_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_MOV)"
       },
       {
         "symbol": "EBPF_OP_MOV_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_MOV)"
       },
       {
         "symbol": "EBPF_OP_ARSH_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_ARSH)"
       },
       {
         "symbol": "EBPF_OP_ARSH_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_ARSH)"
       },
       {
         "symbol": "EBPF_OP_LE",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_IMM | EBPF_ALU_OP_END)"
       },
       {
         "symbol": "EBPF_OP_BE",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU | EBPF_SRC_REG | EBPF_ALU_OP_END)"
       },
       {
         "symbol": "EBPF_OP_ADD64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_ADD)"
       },
       {
         "symbol": "EBPF_OP_ADD64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_ADD)"
       },
       {
         "symbol": "EBPF_OP_SUB64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_SUB)"
       },
       {
         "symbol": "EBPF_OP_SUB64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_SUB)"
       },
       {
         "symbol": "EBPF_OP_MUL64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_MUL)"
       },
       {
         "symbol": "EBPF_OP_MUL64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_MUL)"
       },
       {
         "symbol": "EBPF_OP_DIV64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_DIV)"
       },
       {
         "symbol": "EBPF_OP_DIV64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_DIV)"
       },
       {
         "symbol": "EBPF_OP_OR64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_OR)"
       },
       {
         "symbol": "EBPF_OP_OR64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_OR)"
       },
       {
         "symbol": "EBPF_OP_AND64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_AND)"
       },
       {
         "symbol": "EBPF_OP_AND64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_AND)"
       },
       {
         "symbol": "EBPF_OP_LSH64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_LSH)"
       },
       {
         "symbol": "EBPF_OP_LSH64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_LSH)"
       },
       {
         "symbol": "EBPF_OP_RSH64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_RSH)"
       },
       {
         "symbol": "EBPF_OP_RSH64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_RSH)"
       },
       {
         "symbol": "EBPF_OP_NEG64",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_ALU_OP_NEG)"
       },
       {
         "symbol": "EBPF_OP_MOD64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_MOD)"
       },
       {
         "symbol": "EBPF_OP_MOD64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_MOD)"
       },
       {
         "symbol": "EBPF_OP_XOR64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_XOR)"
       },
       {
         "symbol": "EBPF_OP_XOR64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_XOR)"
       },
       {
         "symbol": "EBPF_OP_MOV64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_MOV)"
       },
       {
         "symbol": "EBPF_OP_MOV64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_MOV)"
       },
       {
         "symbol": "EBPF_OP_ARSH64_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_ARSH)"
       },
       {
         "symbol": "EBPF_OP_ARSH64_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_REG | EBPF_ALU_OP_ARSH)"
       },
       {
         "symbol": "EBPF_OP_BSWAP",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ALU64 | EBPF_SRC_IMM | EBPF_ALU_OP_END)"
       },
       {
         "symbol": "EBPF_OP_LDXW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEM | EBPF_SIZE_W)"
       },
       {
         "symbol": "EBPF_OP_LDXH",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEM | EBPF_SIZE_H)"
       },
       {
         "symbol": "EBPF_OP_LDXB",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEM | EBPF_SIZE_B)"
       },
       {
         "symbol": "EBPF_OP_LDXDW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEM | EBPF_SIZE_DW)"
       },
       {
         "symbol": "EBPF_OP_LDXWSX",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEMSX | EBPF_SIZE_W)"
       },
       {
         "symbol": "EBPF_OP_LDXHSX",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEMSX | EBPF_SIZE_H)"
       },
       {
         "symbol": "EBPF_OP_LDXBSX",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LDX | EBPF_MODE_MEMSX | EBPF_SIZE_B)"
       },
       {
         "symbol": "EBPF_OP_STW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ST | EBPF_MODE_MEM | EBPF_SIZE_W)"
       },
       {
         "symbol": "EBPF_OP_STH",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ST | EBPF_MODE_MEM | EBPF_SIZE_H)"
       },
       {
         "symbol": "EBPF_OP_STB",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ST | EBPF_MODE_MEM | EBPF_SIZE_B)"
       },
       {
         "symbol": "EBPF_OP_STDW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_ST | EBPF_MODE_MEM | EBPF_SIZE_DW)"
       },
       {
         "symbol": "EBPF_OP_STXW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_STX | EBPF_MODE_MEM | EBPF_SIZE_W)"
       },
       {
         "symbol": "EBPF_OP_STXH",
-        "value": "(EB"
+        "value": "(EBPF_CLS_STX | EBPF_MODE_MEM | EBPF_SIZE_H)"
       },
       {
         "symbol": "EBPF_OP_STXB",
-        "value": "(EB"
+        "value": "(EBPF_CLS_STX | EBPF_MODE_MEM | EBPF_SIZE_B)"
       },
       {
         "symbol": "EBPF_OP_STXDW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_STX | EBPF_MODE_MEM | EBPF_SIZE_DW)"
       },
       {
         "symbol": "EBPF_OP_LDDW",
-        "value": "(EB"
+        "value": "(EBPF_CLS_LD | EBPF_MODE_IMM | EBPF_SIZE_DW)"
       },
       {
         "symbol": "EBPF_OP_JA",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_MODE_JA)"
       },
       {
         "symbol": "EBPF_OP_JEQ_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JEQ)"
       },
       {
         "symbol": "EBPF_OP_JEQ_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JEQ)"
       },
       {
         "symbol": "EBPF_OP_JGT_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JGT)"
       },
       {
         "symbol": "EBPF_OP_JGT_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JGT)"
       },
       {
         "symbol": "EBPF_OP_JGE_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JGE)"
       },
       {
         "symbol": "EBPF_OP_JGE_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JGE)"
       },
       {
         "symbol": "EBPF_OP_JSET_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JSET)"
       },
       {
         "symbol": "EBPF_OP_JSET_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JSET)"
       },
       {
         "symbol": "EBPF_OP_JNE_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JNE)"
       },
       {
         "symbol": "EBPF_OP_JNE_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JNE)"
       },
       {
         "symbol": "EBPF_OP_JSGT_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JSGT)"
       },
       {
         "symbol": "EBPF_OP_JSGT_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JSGT)"
       },
       {
         "symbol": "EBPF_OP_JSGE_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JSGE)"
       },
       {
         "symbol": "EBPF_OP_JSGE_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JSGE)"
       },
       {
         "symbol": "EBPF_OP_CALL",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_MODE_CALL)"
       },
       {
         "symbol": "EBPF_OP_EXIT",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_MODE_EXIT)"
       },
       {
         "symbol": "EBPF_OP_JLT_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JLT)"
       },
       {
         "symbol": "EBPF_OP_JLT_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JLT)"
       },
       {
         "symbol": "EBPF_OP_JLE_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JLE)"
       },
       {
         "symbol": "EBPF_OP_JLE_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JLE)"
       },
       {
         "symbol": "EBPF_OP_JSLT_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JSLT)"
       },
       {
         "symbol": "EBPF_OP_JSLT_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JSLT)"
       },
       {
         "symbol": "EBPF_OP_JSLE_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_IMM | EBPF_MODE_JSLE)"
       },
       {
         "symbol": "EBPF_OP_JSLE_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP | EBPF_SRC_REG | EBPF_MODE_JSLE)"
       },
       {
         "symbol": "EBPF_OP_JA32",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_MODE_JA)"
       },
       {
         "symbol": "EBPF_OP_JEQ32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JEQ)"
       },
       {
         "symbol": "EBPF_OP_JEQ32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JEQ)"
       },
       {
         "symbol": "EBPF_OP_JGT32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JGT)"
       },
       {
         "symbol": "EBPF_OP_JGT32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JGT)"
       },
       {
         "symbol": "EBPF_OP_JGE32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JGE)"
       },
       {
         "symbol": "EBPF_OP_JGE32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JGE)"
       },
       {
         "symbol": "EBPF_OP_JSET32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JSET)"
       },
       {
         "symbol": "EBPF_OP_JSET32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JSET)"
       },
       {
         "symbol": "EBPF_OP_JNE32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JNE)"
       },
       {
         "symbol": "EBPF_OP_JNE32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JNE)"
       },
       {
         "symbol": "EBPF_OP_JSGT32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JSGT)"
       },
       {
         "symbol": "EBPF_OP_JSGT32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JSGT)"
       },
       {
         "symbol": "EBPF_OP_JSGE32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JSGE)"
       },
       {
         "symbol": "EBPF_OP_JSGE32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JSGE)"
       },
       {
         "symbol": "EBPF_OP_JLT32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JLT)"
       },
       {
         "symbol": "EBPF_OP_JLT32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JLT)"
       },
       {
         "symbol": "EBPF_OP_JLE32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JLE)"
       },
       {
         "symbol": "EBPF_OP_JLE32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JLE)"
       },
       {
         "symbol": "EBPF_OP_JSLT32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JSLT)"
       },
       {
         "symbol": "EBPF_OP_JSLT32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JSLT)"
       },
       {
         "symbol": "EBPF_OP_JSLE32_IMM",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_IMM | EBPF_MODE_JSLE)"
       },
       {
         "symbol": "EBPF_OP_JSLE32_REG",
-        "value": "(EB"
+        "value": "(EBPF_CLS_JMP32 | EBPF_SRC_REG | EBPF_MODE_JSLE)"
       },
       {
         "symbol": "EBPF_OP_ATOMIC32_STORE",
-        "value": "(EB"
+        "value": "(EBPF_CLS_STX | EBPF_MODE_ATOMIC | EBPF_SIZE_W)"
       },
       {
         "symbol": "EBPF_OP_ATOMIC_STORE",
-        "value": "(EB"
+        "value": "(EBPF_CLS_STX | EBPF_MODE_ATOMIC | EBPF_SIZE_DW)"
       }
     ]
   }

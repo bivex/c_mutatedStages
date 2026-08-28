@@ -64,16 +64,23 @@ def parse_ebpf_header(file_path):
     ebpf_ops = []
     if not file_path.exists():
         return ebpf_ops
-        
-    pattern = re.compile(r"#define\s+(EBPF_OP_[A-Z0-9_]+)\s+([0-9a-fA-FxX\(\)\|\s\<\<\+]+)")
+
+    # Join backslash line-continuations first, then capture the full C
+    # expression. NOTE: the value class must include general identifiers
+    # (EBPF_CLS_ALU, BPF_OP_ADD, ...) — a hex-digit-only class silently
+    # truncates values like "(EBPF_CLS_ALU | ..." to "(EB" because E and B
+    # happen to be hex digits while P is not.
     with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-        for line in f:
-            m = pattern.search(line)
-            if m:
-                ebpf_ops.append({
-                    "symbol": m.group(1),
-                    "value": m.group(2).strip()
-                })
+        text = f.read().replace("\\\n", " ")
+
+    # Strip trailing // comments, then capture symbol + full expression value
+    pattern = re.compile(r"#define\s+(EBPF_OP_[A-Z0-9_]+)\s+([A-Za-z0-9_()|<>\s+~&\-]+?)\s*(?://.*)?$", re.MULTILINE)
+    for m in pattern.finditer(text):
+        value = " ".join(m.group(2).split())  # normalise internal whitespace
+        ebpf_ops.append({
+            "symbol": m.group(1),
+            "value": value
+        })
     return ebpf_ops
 
 def main():
