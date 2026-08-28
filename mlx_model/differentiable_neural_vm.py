@@ -214,7 +214,7 @@ class DifferentiableRAM(nn.Module):
         alloc = mx.take_along_axis(a_sorted, inv, axis=-1)                       # (B, N)
 
         # -- §3.1 content addressing ----------------------------------------
-        c = self.content_addressing(M, key, mx.broadcast_to(self.beta, (B,)))    # (B, N)
+        c = self.content_addressing(M, key, self.beta)                           # (B, N)
 
         # -- write weighting: w^w = g^w (g^a a + (1 - g^a) c) ----------------
         g_a = mx.sigmoid(self.alloc_mix)
